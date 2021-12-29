@@ -23,5 +23,3 @@ connection.end();
 //
 //     console.log('connected as id ' + connection.threadId);
 // });
-
-
