@@ -26,6 +26,7 @@ app.listen(5001, () => {
 
 //define routes
 app.use('/', require('./routes/pages'))
+app.use('/auth', require('./routes/auth'))
 
 //
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
