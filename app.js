@@ -24,14 +24,8 @@ app.listen(5001, () => {
     console.log("Server started on Port 5001")
 })
 
-app.get("/", (req, res) => {
-    // res.send("<h1>Home Page</h1>");
-    res.render("index");
-})
-
-app.get("/register", (req, res) => {
-    res.render("register")
-})
+//define routes
+app.use('/', require('./routes/pages'))
 
 //
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
