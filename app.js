@@ -1,17 +1,10 @@
-const express = require("express")
-const mysql = require("mysql")
-const dotenv = require("dotenv")
-
-// dotenv.config({ path: './.env' });
-
-// dotenv.config({ path:__dirname + '/.env' })
+const express = require("express");
+const mysql = require("mysql");
+const dotenv = require("dotenv");
+const path = require('path');
+const constants = require("constants");
 
 require('dotenv').config();
-
-// const path = require('path')
-// require('dotenv').config({
-//     path: path.resolve(__dirname, '/.env')
-// })
 
 const app = express();
 
@@ -22,13 +15,21 @@ const db = mysql.createConnection({
     database: process.env["DATABASE"]
 })
 
-app.get("/", (req, res) => {
-    res.send("<h1>Home Page</h1>")
-})
+const publicDirectory = path.join(__dirname, './public');
+app.use(express.static(publicDirectory));
 
-app.listen(5000, () => {
+app.set('view engine', 'hbs')
+
+app.listen(5001, () => {
     console.log("Server started on Port 5001")
 })
+
+app.get("/", (req, res) => {
+    // res.send("<h1>Home Page</h1>");
+    res.render("index");
+})
+
+
 
 //
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
