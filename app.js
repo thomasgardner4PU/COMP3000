@@ -29,7 +29,9 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
-
+app.get("/register", (req, res) => {
+    res.render("register")
+})
 
 //
 // connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
