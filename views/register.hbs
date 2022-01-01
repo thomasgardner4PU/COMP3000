@@ -39,12 +39,21 @@
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
 
+                <div class="form-group">
+                    <label for="passwordConfirm" class="form-label">Password Confirm</label>
+                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
+                </div>
+
                 <button type="submit" class="btn btn-primary">Register User</button>
             </form>
             <div class="card-header">
                 Register Form
             </div>
         </div>
+
+        {{#if message }}
+            <h4 class="alert alert-danger form-group">{{message}}</h4>
+            {{/if}}
     </div>
     </div>
 </div>
