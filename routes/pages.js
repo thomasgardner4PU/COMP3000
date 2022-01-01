@@ -1,5 +1,4 @@
 let express = require('express');
-const {route} = require("express/lib/router");
 
 let router = express.Router();
 

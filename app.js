@@ -18,6 +18,9 @@ const db = mysql.createConnection({
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
+// parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded({extended: false}))
+
 app.set('view engine', 'hbs')
 
 app.listen(5001, () => {
@@ -25,25 +28,9 @@ app.listen(5001, () => {
 })
 
 //define routes
-app.use('/', require('./routes/pages'))
-app.use('/auth', require('./routes/auth'))
+app.use('/', require('./routes/pages'));
+app.use('/auth', require('./routes/auth'));
 
-//
-// connection.query('SELECT 1 + 1 AS solution', function (error, results, fields){
-//     if (error) throw error;
-//     console.log('The solution is: ', results[0].solution);
-// });
-//
-// connection.end();
-
-// db.connect(function (err) {
-//     if (err) {
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
-//
-//     console.log('connected as id ' + db.threadId);
-// });
 
 db.connect( (error) => {
     if(error) {

@@ -1,4 +1,4 @@
 exports.register = (req, res) => {
-    console.log(req.body) // grabbing the data we send from the form and show in terminal
+    console.log(req.body);
     res.send("Form submitted")
 }
