@@ -25,19 +25,18 @@ app.use(express.json());
 
 app.set('view engine', 'hbs')
 
-app.listen(5001, () => {
-    console.log("Server started on Port 5001")
+db.connect( (error) => {
+    if(error) {
+        console.log(error)
+    } else {
+        console.log("Connected to MySQL Database...")
+    }
 })
 
 //define routes
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
-
-db.connect( (error) => {
-    if(error) {
-        console.log(error)
-    } else {
-        console.log("Mysql Connected...")
-    }
+app.listen(5001, () => {
+    console.log("Server started on Port 5001")
 })

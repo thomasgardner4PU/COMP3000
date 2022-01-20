@@ -22,12 +22,11 @@
 
 <div class="container mt-4">
     <div class="card">
+        <div class="card-header">
+            login form
+        </div>
         <div class="card-body">
-            <form action="/auth/register" method="post">
-                <div class="form-group">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                </div>
+            <form action="/auth/login" method="post">
 
                 <div class="form-group">
                     <label for="email" class="form-label">Email Address</label>
@@ -39,20 +38,15 @@
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
 
-                <div class="form-group">
-                    <label for="passwordConfirm" class="form-label">Password Confirm</label>
-                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Register User</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
 
         {{#if message }}
             <h4 class="alert alert-danger form-group">{{message}}</h4>
-            {{/if}}
+        {{/if}}
     </div>
-    </div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
