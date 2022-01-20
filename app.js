@@ -3,6 +3,7 @@ const mysql = require("mysql");
 const dotenv = require("dotenv");
 const path = require('path');
 const constants = require("constants");
+const cookieParser = require("cookie-parser");
 
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ app.use(express.static(publicDirectory));
 app.use(express.urlencoded({extended: false}))
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+app.use(cookieParser()); //setup cookies in browser
 
 app.set('view engine', 'hbs')
 
