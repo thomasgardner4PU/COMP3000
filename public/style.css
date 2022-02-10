@@ -17,8 +17,10 @@ nav ul{
     align-items: center; /* will vertically align to center the il tags, as they are the children of the ul*/
 }
 
-nav il {
-    list-style: none; /* removes the dots */
+nav li {
+    list-style-type: none; /* removes the dots */
+    margin: 0;
+    padding: 0;
 }
 
 nav li a {
