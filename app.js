@@ -16,9 +16,6 @@ const db = mysql.createConnection({
     database: process.env["DATABASE"]
 })
 
-const publicDirectory = path.join(__dirname, './public');
-app.use(express.static(publicDirectory));
-
 // parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({extended: false}))
 // Parse JSON bodies (as sent by API clients)
@@ -26,6 +23,9 @@ app.use(express.json());
 app.use(cookieParser()); //setup cookies in browser
 
 app.set('view engine', 'hbs')
+
+const publicDirectory = path.join(__dirname, './public');
+app.use(express.static(publicDirectory));
 
 db.connect( (error) => {
     if(error) {

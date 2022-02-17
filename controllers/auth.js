@@ -1,9 +1,9 @@
-const mysql = require("mysql");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { promisify } = require('util');
 const {hashPassword} = require("mysql/lib/protocol/Auth");
-const { promisify } = require('util')
-const {decode} = require("jsonwebtoken");
+const mysql = require("mysql")
+
 
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
@@ -55,75 +55,97 @@ exports.login = async (req, res) => {
 }
 
 
+
+// exports.register = (req, res) => {
+//     console.log(req.body);
+//
+//     // let name = req.body.name;
+//     // let email = req.body.email;
+//     // let password = req.body.password;
+//     // let passwordConfirm = req.body.passwordConfirm;
+//
+//     let { name, email, password, passwordConfirm } = req.body;
+//     db.query('SELECT email FROM user WHERE email = ?', [email], async (error, results) => {
+//         if(error) {
+//             console.log(error);
+//         }
+//
+//         if (results.length > 0) {
+//             return res.render('register', {
+//                 message: 'That email is already in use'
+//             });
+//         } else if (password !== passwordConfirm) {
+//             return res.render('register', {
+//                 message: 'That passwords do not match'
+//             });
+//         }
+//
+//        let hashedPassword = await bcrypt.hash(password, 8);
+//         console.log(hashedPassword);
+//
+//         db.query('INSERT INTO user SET ? ', {name: name, email: email, password: hashedPassword }, (error, results) => {
+//             if(error){
+//                 console.log(error);
+//             } else {
+//                 console.log(results);
+//                 return res.render('register', {
+//                     message: 'User registered'
+//                 });
+//             }
+//         })
+//     });
+// }
+
 exports.register = (req, res) => {
     console.log(req.body);
+    const { name, email, password, passwordConfirm } = req.body;
 
-    // let name = req.body.name;
-    // let email = req.body.email;
-    // let password = req.body.password;
-    // let passwordConfirm = req.body.passwordConfirm;
-
-    let { name, email, password, passwordConfirm } = req.body;
-    db.query('SELECT email FROM user WHERE email = ?', [email], async (error, results) => {
+    // 2) Check if user exists && password is correct
+    db.start.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
         if(error) {
-            console.log(error);
+            console.log(error)
         }
 
-        if (results.length > 0) {
+        if(results.length > 0 ) {
             return res.render('register', {
-                message: 'That email is already in use'
+                message: 'That Email has been taken'
             });
-        } else if (password !== passwordConfirm) {
+        } else if(password !== passwordConfirm) {
             return res.render('register', {
-                message: 'That passwords do not match'
+                message: 'Passwords do not match'
             });
         }
 
-       let hashedPassword = await bcrypt.hash(password, 8);
+        let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
-        db.query('INSERT INTO user SET ? ', {name: name, email: email, password: hashedPassword }, (error, results) => {
-            if(error){
-                console.log(error);
+        db.start.query('INSERT INTO users SET ?', { name: name, email: email, password: hashedPassword }, (error, result) => {
+            if(error) {
+                console.log(error)
             } else {
-                console.log(results);
-                return res.render('register', {
-                    message: 'User registered'
+                db.start.query('SELECT id FROM users WHERE email = ?', [email], (error, result) => {
+                    const id = result[0].id;
+                    console.log(id);
+                    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+                        expiresIn: process.env.JWT_EXPIRES_IN
+                    });
+
+                    const cookieOptions = {
+                        expires: new Date(
+                            Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+                        ),
+                        httpOnly: true
+                    };
+                    res.cookie('jwt', token, cookieOptions);
+
+                    res.status(201).redirect("/");
                 });
             }
-        })
+        });
     });
-}
+};
+
 exports.isLoggedIn = async (req, res, next) => {
-    console.log(req.cookies)
-    if ( req.cookies.jwtid) {
-        try {
-            //1) verify the token
-            const decoded = await promisify(jwt.verify)(req.cookies.jwtid,
-                process.env.JWT_SECRET
-            );
-
-            console.log(decoded)
-            //
-            // // 2) check if the user still exists
-            // db.query('SELECT * WHERE id = ?', [decoded.id], (error, result) => {
-            //     console.log(result);
-            //
-            //     if (!result) {
-            //         return next();
-            //     }
-            //
-            //     req.user = result[0]
-            //     return next();
-            // });
-        } catch (error) {
-            console.log(error)
-            return next();
-        }
-
-
-    } else {
-        next();
-    }
-
-}
+    console.log(req.cookies);
+    next();
+};
