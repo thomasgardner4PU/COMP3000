@@ -16,8 +16,9 @@ router.get('/login', (req, res) =>{
     res.render('login');
 });
 
+// creating middleware
 router.get('/profile', authController.isLoggedIn, (req, res) => {
     res.render('profile');
-})
+});
 
 module.exports = router;
