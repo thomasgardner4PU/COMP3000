@@ -165,14 +165,16 @@ exports.isLoggedIn = async (req, res, next) => {
                 console.log(result);
 
                 if (!result) {
-                    return
+                    return next();
                 }
-            })
 
-
+                req.user = result[0];
+                return next();
+            });
             console.log(decoded)
         } catch (error) {
             console.log(error)
+            return next();
         }
     }
     next();
