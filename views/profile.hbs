@@ -15,8 +15,8 @@
     <h4>User Profile Page</h4>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/login">login</a></li>
-        <li><a href="/register">Register</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
     </ul>
 </nav>
 
@@ -28,9 +28,9 @@
                     <img src="/public/images/Avatar.png" class="avatar" ALT="User Profile Picture">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Thomas Gardner</h5>
+                    <h5 class="card-title">{{user.name}}</h5>
                     <p class="card-text">Quick example text</p>
-                    <a href="#" class="btn btn-primary">thomasgardner@email.com</a>
+                    <a href="#" class="btn btn-primary">{{user.email}}</a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     Profile Page
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Hey Thomas, welcome back!</h5>
+                    <h5 class="card-title">Hey {{user.name}}</h5>
                     <p class="card-text">This is the profile page, where you can add all sorts of things about yourself!</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
