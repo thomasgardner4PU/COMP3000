@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const { promisify } = require('util');
 const {hashPassword} = require("mysql/lib/protocol/Auth");
 const mysql = require("mysql")
+const {decode} = require("jsonwebtoken");
 
 
 const db = mysql.createConnection({
@@ -153,9 +154,21 @@ exports.isLoggedIn = async (req, res, next) => {
     console.log(req.cookies);
     if ( req.cookies.jwt ) {
         try {
+
+            // step 1 verify the token , make sure the token exists and which user has what token
             const decoded = await promisify(jwt.verify)(req.cookies.jwt,
                 process.env.JWT_SECRET
             );
+
+            // 2) check if the user still exists
+            db.query('SELECT * FROM user WHERE id = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                if (!result) {
+                    return
+                }
+            })
+
 
             console.log(decoded)
         } catch (error) {
