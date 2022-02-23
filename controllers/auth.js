@@ -146,5 +146,8 @@ exports.register = (req, res) => {
 };
 
 exports.isLoggedIn = async (req, res, next) => {
+    // creating a variable inside of a request called message as shown below, and
     req.message = "inside middleware";
+    // next is to ensure that we can render the page, or else the function won't run properly
+    next();
 };

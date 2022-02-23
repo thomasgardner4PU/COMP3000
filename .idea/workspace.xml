@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c6c0a08-9f44-449f-bbfa-fed1c5a0b0b8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/pages.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,7 @@
       <workItem from="1645092516317" duration="8190000" />
       <workItem from="1645101245429" duration="1349000" />
       <workItem from="1645103494782" duration="741000" />
-      <workItem from="1645576527973" duration="274000" />
+      <workItem from="1645576527973" duration="778000" />
     </task>
     <servers />
   </component>
