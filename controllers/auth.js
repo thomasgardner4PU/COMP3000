@@ -150,11 +150,17 @@ exports.isLoggedIn = async (req, res, next) => {
     // // req.message = "inside middleware";
     // // next is to ensure that we can render the page, or else the function won't run properly
     //
-    // console.log(req.cookies);
-    // // if ( req.cookies.jwt ) {
-    // //     try {
-    // //         const decoded =
-    // //     } catch (error)
-    // // }
-    // next();
+    console.log(req.cookies);
+    if ( req.cookies.jwt ) {
+        try {
+            const decoded = await promisify(jwt.verify)(req.cookies.jwt,
+                process.env.JWT_SECRET
+            );
+
+            console.log(decoded)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    next();
 };
