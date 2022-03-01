@@ -13,6 +13,18 @@ const db = mysql.createConnection({
     database: process.env["DATABASE"]
 })
 
+exports.getAudio = async (req,res) => {
+    // query database to get audio file row
+        // SELECT * FROM filesTbl WHERE id = req.body.id AND type = 1
+
+}
+
+
+exports.getprofilePicture = async (req,res) => {
+    // query database to get image row
+        // SELECT value FROM settingstbl WHERE Userid = Userid AND key = profilePicture
+}
+
 
 // user will either select background colour or background file
 exports.saveSetting = async (req, res) => {
@@ -28,7 +40,7 @@ exports.saveSetting = async (req, res) => {
         //return default colour or file
     }
 
-    
+
     if (req.body.file) {
         backgroundRAWValue = `file-${req.body.file}`
     } else if (req.body.colour) {
@@ -46,7 +58,7 @@ exports.login = async (req, res) => {
         const {email, password } = req.body;
 
         if ( !email || !password) {
-            return res.status(400).render('login', {
+            return res.status(401).render('login', {
                 message: 'Please provide an email and password'
             })
         }
