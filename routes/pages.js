@@ -32,4 +32,8 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 
 });
 
+router.get('/meditations', (req,res) => {
+    res.render('meditations');
+})
+
 module.exports = router;

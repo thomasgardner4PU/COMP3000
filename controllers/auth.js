@@ -30,22 +30,25 @@ exports.getprofilePicture = async (req,res) => {
 exports.saveSetting = async (req, res) => {
     let backgroundRAWValue = "colour-blue";
     let backgroundKeyvalue = backgroundRAWValue.split("-")
-    let backgroundType = backgroundKeyvalue[0]
-    let backgroundValue = backgroundKeyvalue[1]
-    if (backgroundType == "colour"){
-
-    }else if (backgroundType == "file") {
-
-    } else {
-        //return default colour or file
-    }
 
 
-    if (req.body.file) {
-        backgroundRAWValue = `file-${req.body.file}`
-    } else if (req.body.colour) {
-        backgroundRAWValue = `colour-${req.body.colour}`
-    }
+
+    // let backgroundType = backgroundKeyvalue[0]
+    // let backgroundValue = backgroundKeyvalue[1]
+    // if (backgroundType == "colour"){
+    //
+    // }else if (backgroundType == "file") {
+    //
+    // } else {
+    //     //return default colour or file
+    // }
+    //
+    //
+    // if (req.body.file) {
+    //     backgroundRAWValue = `file-${req.body.file}`
+    // } else if (req.body.colour) {
+    //     backgroundRAWValue = `colour-${req.body.colour}`
+    // }
 }
 
 exports.loadSetting = async (req,res) => {
