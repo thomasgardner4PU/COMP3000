@@ -5,8 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/pages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/meditations.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/meditations.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,8 @@
       <workItem from="1645103494782" duration="741000" />
       <workItem from="1645576527973" duration="6258000" />
       <workItem from="1646141029950" duration="7505000" />
-      <workItem from="1646315582410" duration="4234000" />
+      <workItem from="1646315582410" duration="4746000" />
+      <workItem from="1646418592935" duration="4486000" />
     </task>
     <servers />
   </component>

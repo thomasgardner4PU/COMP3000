@@ -32,7 +32,7 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 
 });
 
-router.get('/meditations', (req,res) => {
+router.get('/meditations', authController.getAudio, ( req,res) => {
     res.render('meditations');
 })
 

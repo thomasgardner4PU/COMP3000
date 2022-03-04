@@ -11,50 +11,13 @@ const db = mysql.createConnection({
     user: process.env["DATABASE_USER"],
     password: process.env["DATABASE_PASSWORD"],
     database: process.env["DATABASE"]
-})
-
-exports.getAudio = async (req,res) => {
-    // query database to get audio file row
-        // SELECT * FROM filesTbl WHERE id = req.body.id AND type = 1
-
-}
+});
 
 
-exports.getprofilePicture = async (req,res) => {
-    // query database to get image row
-        // SELECT value FROM settingstbl WHERE Userid = Userid AND key = profilePicture
-}
-
-
-// user will either select background colour or background file
-exports.saveSetting = async (req, res) => {
-    let backgroundRAWValue = "colour-blue";
-    let backgroundKeyvalue = backgroundRAWValue.split("-")
-
-
-
-    // let backgroundType = backgroundKeyvalue[0]
-    // let backgroundValue = backgroundKeyvalue[1]
-    // if (backgroundType == "colour"){
-    //
-    // }else if (backgroundType == "file") {
-    //
-    // } else {
-    //     //return default colour or file
-    // }
-    //
-    //
-    // if (req.body.file) {
-    //     backgroundRAWValue = `file-${req.body.file}`
-    // } else if (req.body.colour) {
-    //     backgroundRAWValue = `colour-${req.body.colour}`
-    // }
-}
-
-exports.loadSetting = async (req,res) => {
-
-}
-
+/* ======================================================
+       Section 1 - Login/register & user profile functionality
+=========================================================
+ */
 
 exports.login = async (req, res) => {
     try {
@@ -232,4 +195,51 @@ exports.logout = async (req, res, next) => {
     });
 
     res.status(200).redirect('/');
+}
+
+/* ======================================================
+       Section 2 - Meditation View functionality
+=========================================================
+ */
+
+exports.getAudio = async (req,res) => {
+    // query database to get audio file row
+    // SELECT * FROM filesTbl WHERE id = req.body.id AND type = 1
+
+}
+
+
+exports.getprofilePicture = async (req,res) => {
+    // query database to get image row
+    // SELECT value FROM settingstbl WHERE Userid = Userid AND key = profilePicture
+}
+
+
+// user will either select background colour or background file
+exports.saveSetting = async (req, res) => {
+    let backgroundRAWValue = "colour-blue";
+    let backgroundKeyvalue = backgroundRAWValue.split("-")
+
+
+
+    // let backgroundType = backgroundKeyvalue[0]
+    // let backgroundValue = backgroundKeyvalue[1]
+    // if (backgroundType == "colour"){
+    //
+    // }else if (backgroundType == "file") {
+    //
+    // } else {
+    //     //return default colour or file
+    // }
+    //
+    //
+    // if (req.body.file) {
+    //     backgroundRAWValue = `file-${req.body.file}`
+    // } else if (req.body.colour) {
+    //     backgroundRAWValue = `colour-${req.body.colour}`
+    // }
+}
+
+exports.loadSetting = async (req,res) => {
+
 }
