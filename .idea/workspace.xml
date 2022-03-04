@@ -8,8 +8,13 @@
 <<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/pages.js" afterDir="false" />
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
+=======
+      <change beforePath="$PROJECT_DIR$/views/meditations.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/meditations.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.hbs" afterDir="false" />
+>>>>>>> d51298394533f658a4ba5fdc34dd658ca2f4c6f8
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +72,23 @@
       <workItem from="1642103100320" duration="177000" />
       <workItem from="1642169996100" duration="165000" />
       <workItem from="1642674609032" duration="17470000" />
+<<<<<<< HEAD
 =======
       <workItem from="1640967517720" duration="11496000" />
       <workItem from="1642605435919" duration="708000" />
       <workItem from="1642802663938" duration="8000" />
 >>>>>>> Stashed changes
+=======
+      <workItem from="1643285597911" duration="2721000" />
+      <workItem from="1643387764277" duration="14000" />
+      <workItem from="1644510249899" duration="3898000" />
+      <workItem from="1645092516317" duration="8190000" />
+      <workItem from="1645101245429" duration="1349000" />
+      <workItem from="1645103494782" duration="741000" />
+      <workItem from="1645576527973" duration="6258000" />
+      <workItem from="1646141029950" duration="7505000" />
+      <workItem from="1646315582410" duration="4234000" />
+>>>>>>> d51298394533f658a4ba5fdc34dd658ca2f4c6f8
     </task>
     <servers />
   </component>

@@ -13,17 +13,22 @@
 <h1>HomePage</h1>
 
 <nav>
-    <h4>User Login Page</h4>
+    <h4>Login Page</h4>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/login"></a>Login</li>
-        <li><a href="/register"></a>Register</li>
+        {{#if user }}
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+        {{else}}
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+            {{/if}}
     </ul>
 </nav>
 
 <div class="container mt-4">
     <div class="jumbotron">
-        <p class="lead">Please press the register button to continue to your profile!.</p>
+        <p class="lead">Please press the register button to SignUp!.</p>
         <hr class="my-4">
         <p>The Mindfulness Associate is only a few steps away</p>
     </div>
