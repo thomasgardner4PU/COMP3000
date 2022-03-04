@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c6c0a08-9f44-449f-bbfa-fed1c5a0b0b8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/COMP3000.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COMP3000.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/controllers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/pages.js" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+=======
+      <change beforePath="$PROJECT_DIR$/views/meditations.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/meditations.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.hbs" afterDir="false" />
+>>>>>>> d51298394533f658a4ba5fdc34dd658ca2f4c6f8
+>>>>>>> bd607f208d597e1fc34050f24d5844e2f4fb98e5
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +69,20 @@
       <workItem from="1638281923119" duration="57000" />
       <workItem from="1639136939586" duration="189000" />
       <workItem from="1640808515141" duration="10430000" />
+<<<<<<< Updated upstream
       <workItem from="1640967517720" duration="11838000" />
       <workItem from="1641568485550" duration="842000" />
       <workItem from="1641826234554" duration="63000" />
       <workItem from="1642103100320" duration="177000" />
       <workItem from="1642169996100" duration="165000" />
       <workItem from="1642674609032" duration="17470000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1640967517720" duration="11496000" />
+      <workItem from="1642605435919" duration="708000" />
+      <workItem from="1642802663938" duration="8000" />
+>>>>>>> Stashed changes
+=======
       <workItem from="1643285597911" duration="2721000" />
       <workItem from="1643387764277" duration="14000" />
       <workItem from="1644510249899" duration="3898000" />
@@ -70,8 +91,13 @@
       <workItem from="1645103494782" duration="741000" />
       <workItem from="1645576527973" duration="6258000" />
       <workItem from="1646141029950" duration="7505000" />
+<<<<<<< HEAD
       <workItem from="1646315582410" duration="4746000" />
       <workItem from="1646418592935" duration="4486000" />
+=======
+      <workItem from="1646315582410" duration="4234000" />
+>>>>>>> d51298394533f658a4ba5fdc34dd658ca2f4c6f8
+>>>>>>> bd607f208d597e1fc34050f24d5844e2f4fb98e5
     </task>
     <servers />
   </component>
