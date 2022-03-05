@@ -202,16 +202,16 @@ exports.logout = async (req, res, next) => {
 =========================================================
  */
 
-exports.getAudio = async (req,res) => {
-    // query database to get audio file row
-    // SELECT * FROM filesTbl WHERE id = req.body.id AND type = 1
+exports.addAudio = async (req,res) => {
 
 }
 
+exports.getAudio = async (req,res) => {
 
-exports.getprofilePicture = async (req,res) => {
-    // query database to get image row
-    // SELECT value FROM settingstbl WHERE Userid = Userid AND key = profilePicture
+}
+
+exports.addProfilepic = async (req,res) => {
+
 }
 
 

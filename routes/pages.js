@@ -32,8 +32,14 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 
 });
 
-router.get('/meditations', authController.getAudio, ( req,res) => {
+router.get('/meditations', authController.addAudio, ( req,res) => {
     res.render('meditations');
 })
+
+router.post('/meditations', authController.getAudio, (req,res) => {
+
+})
+
+
 
 module.exports = router;
