@@ -207,10 +207,6 @@ exports.addAudio = async (req,res) => {
 }
 
 exports.getAudio = async (req,res) => {
-
-}
-
-exports.meditationSession = async (req,res) => {
     console.log(req.cookies);
     if ( req.cookies.jwt) {
         try {

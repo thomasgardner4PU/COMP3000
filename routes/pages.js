@@ -36,7 +36,7 @@ router.post('/meditations', authController.addAudio, ( req,res) => {
     res.render('meditations');
 })
 
-router.get('/meditations', authController.meditationSession, (req,res) => {
+router.get('/meditations', authController.getAudio, (req,res) => {
     if ( req.user) {
         res.render('meditations', {
             user: req.user
