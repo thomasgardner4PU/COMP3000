@@ -202,10 +202,6 @@ exports.logout = async (req, res, next) => {
 =========================================================
  */
 
-exports.meditationSession = async (req,res) => {
-    
-}
-
 exports.addAudio = async (req,res) => {
 
 }
@@ -213,6 +209,36 @@ exports.addAudio = async (req,res) => {
 exports.getAudio = async (req,res) => {
 
 }
+
+exports.meditationSession = async (req,res) => {
+    console.log(req.cookies);
+    if ( req.cookies.jwt) {
+        try {
+            const decoded = await promisify(jwt.verify)(req.cookies.jwt,
+                process.env.JWT_SECRET
+            );
+
+            db.query('SELECT * FROM meditation_files WHERE meditation_id = ? AND length = ?', [decoded.id], (error, result) => {
+                console.log(result);
+
+                if (!result) {
+                    return next();
+                }
+
+                req.user = result[0];
+                return next();
+            });
+            console.log(decoded)
+        } catch (error) {
+            console.log(error)
+            return next();
+        }
+    } else {
+        next();
+    }
+}
+
+
 
 exports.addProfilepic = async (req,res) => {
 
