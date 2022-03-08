@@ -202,6 +202,10 @@ exports.logout = async (req, res, next) => {
 =========================================================
  */
 
+exports.meditationSession = async (req,res) => {
+    
+}
+
 exports.addAudio = async (req,res) => {
 
 }
