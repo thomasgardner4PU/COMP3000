@@ -11,9 +11,7 @@ router.post('/login', authController.login)
 
 router.get('/logout', authController.logout);
 
-router.post('/meditations', authController.saveSetting);
-
-router.post('meditations', authController.loadSetting);
+router.post('/meditations', authController.addAudio);
 
 router.get('/meditations', authController.getAudio);
 
