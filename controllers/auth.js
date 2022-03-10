@@ -4,7 +4,8 @@ const { promisify } = require('util');
 const {hashPassword} = require("mysql/lib/protocol/Auth");
 const mysql = require("mysql")
 const {decode} = require("jsonwebtoken");
-
+const cors = require("cors");
+const {token} = require("mysql");
 
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
@@ -44,6 +45,9 @@ exports.login = async (req, res) => {
 
                 console.log("The token is: " + token);
 
+                // req.session.user = results;
+                // console.log(req.session.user)
+
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
@@ -52,8 +56,9 @@ exports.login = async (req, res) => {
                 }
 
                 res.cookie('jwt', token, cookieOptions);
-                res.status(200).redirect("/");
+                res.status(200).redirect("/profile");
             }
+
 
         })
     } catch (error) {
@@ -103,55 +108,6 @@ exports.register = (req, res) => {
     });
 }
 
-// exports.register = (req, res) => {
-//     console.log(req.body);
-//     const { name, email, password, passwordConfirm } = req.body;
-//
-//     // 2) Check if user exists && password is correct
-//     db.start.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
-//         if(error) {
-//             console.log(error)
-//         }
-//
-//         if(results.length > 0 ) {
-//             return res.render('register', {
-//                 message: 'That Email has been taken'
-//             });
-//         } else if(password !== passwordConfirm) {
-//             return res.render('register', {
-//                 message: 'Passwords do not match'
-//             });
-//         }
-//
-//         let hashedPassword = await bcrypt.hash(password, 8);
-//         console.log(hashedPassword);
-//
-//         db.start.query('INSERT INTO users SET ?', { name: name, email: email, password: hashedPassword }, (error, result) => {
-//             if(error) {
-//                 console.log(error)
-//             } else {
-//                 db.start.query('SELECT id FROM users WHERE email = ?', [email], (error, result) => {
-//                     const id = result[0].id;
-//                     console.log(id);
-//                     const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-//                         expiresIn: process.env.JWT_EXPIRES_IN
-//                     });
-//
-//                     const cookieOptions = {
-//                         expires: new Date(
-//                             Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-//                         ),
-//                         httpOnly: true
-//                     };
-//                     res.cookie('jwt', token, cookieOptions);
-//
-//                     res.status(201).redirect("/");
-//                 });
-//             }
-//         });
-//     });
-// };
-
 exports.isLoggedIn = async (req, res, next) => {
     // // creating a variable inside of a request called message as shown below, and
     // // req.message = "inside middleware";
@@ -176,6 +132,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
                 req.user = result[0];
                 return next();
+
             });
             console.log(decoded)
         } catch (error) {
@@ -187,6 +144,8 @@ exports.isLoggedIn = async (req, res, next) => {
     }
 
 };
+
+
 
 exports.logout = async (req, res, next) => {
     res.cookie('jwt', 'logout', {
@@ -201,71 +160,6 @@ exports.logout = async (req, res, next) => {
        Section 2 - Meditation View functionality
 =========================================================
  */
-
-exports.addAudio = async (req,res) => {
-
-}
-
-exports.getAudio = async (req,res) => {
-    console.log(req.cookies);
-    if ( req.cookies.jwt) {
-        try {
-            const decoded = await promisify(jwt.verify)(req.cookies.jwt,
-                process.env.JWT_SECRET
-            );
-
-            db.query('SELECT * FROM meditation_files WHERE meditation_id = ? AND length = ?', [decoded.id], (error, result) => {
-                console.log(result);
-
-                if (!result) {
-                    return next();
-                }
-
-                req.user = result[0];
-                return next();
-            });
-            console.log(decoded)
-        } catch (error) {
-            console.log(error)
-            return next();
-        }
-    } else {
-        next();
-    }
-}
-
-
-
-exports.addProfilepic = async (req,res) => {
-
-}
-
-
-// user will either select background colour or background file
-exports.saveSetting = async (req, res) => {
-    let backgroundRAWValue = "colour-blue";
-    let backgroundKeyvalue = backgroundRAWValue.split("-")
-
-
-
-    // let backgroundType = backgroundKeyvalue[0]
-    // let backgroundValue = backgroundKeyvalue[1]
-    // if (backgroundType == "colour"){
-    //
-    // }else if (backgroundType == "file") {
-    //
-    // } else {
-    //     //return default colour or file
-    // }
-    //
-    //
-    // if (req.body.file) {
-    //     backgroundRAWValue = `file-${req.body.file}`
-    // } else if (req.body.colour) {
-    //     backgroundRAWValue = `colour-${req.body.colour}`
-    // }
-}
-
-exports.loadSetting = async (req,res) => {
+exports.loadMeditationPage = async (req, res, next) => {
 
 }
