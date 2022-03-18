@@ -95,8 +95,40 @@ nav li a:hover{
 /* AUDIO */
 .audio{
     grid-area: a;
-    background-color: aqua;
-    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.audio img{
+    width: 50px;
+    cursor: pointer;
+}
+.audio .progress{
+    width: 200px;
+    height: 200px;
+    
+    position: relative;
+
+    margin: 0 40px;
+}
+.audio .progress svg {
+    width: 200px;
+    height: 200px;
+
+    transform: rotate(45deg);
+
+    position: absolute;
+}
+.audio .progress .audio-remaining-time{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 /* DURATIONS */
