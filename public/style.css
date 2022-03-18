@@ -44,3 +44,44 @@ nav li a:hover{
     width: 65%;
     border-bottom: 1px solid rgba(0,0,0,0.125);
 }
+
+/*======================================================
+                Meditation View Styling
+=========================================================*/
+
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/* Video */
+
+.video {
+    width: 100vw;
+    height: 100vh;
+
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+}
+
+.video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-33%);
+
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/*media query for small screens*/
+
+@media screen and (max-width: 600px) {
+    /* VIDEO */
+
+    .video video {
+        height: 100%;
+    }
+}
