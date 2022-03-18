@@ -61,9 +61,11 @@ nav li a:hover{
     width: 100vw;
     height: 100vh;
 
-    /*position: fixed;*/
+    position: fixed;
     top: 0;
     left: 0;
+
+    z-index: -1;
 }
 
 .video video {
@@ -74,6 +76,41 @@ nav li a:hover{
 
     min-width: 100%;
     min-height: 100%;
+}
+
+/* APP */
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    /*background-color: aqua;*/
+    display: grid;
+    grid-template-areas:
+            "a a a a s s"
+            "a a a a s s"
+            "d d d d s s"
+            "d d d d s s";
+}
+
+/* AUDIO */
+.audio{
+    grid-area: a;
+    background-color: aqua;
+    opacity: 0.5;
+}
+
+/* DURATIONS */
+.durations{
+    grid-area: d;
+    background-color: red;
+    opacity: 0.5;
+}
+
+/* SEASONS */
+.seasons{
+    grid-area: s;
+    background-color: blue;
+    opacity: 0.5;
 }
 
 /*media query for small screens*/
