@@ -25,7 +25,29 @@
 </div>
 
 <div class="app">
-    <div class="audio"></div>
+    <div class="audio">
+        <audio>
+            <source src="audio/meditation.mp3"
+            type="audio/mpeg">
+        </audio>
+        <div class="pause">
+            <img src="/images/meditation_images/pause-button.png" alt="pause">
+        </div>
+        <div class="progress">
+            <svg>
+                <rect stroke-width="10" rx="8" height="150" width="150" y="25" x="25" stroke="#F07281" fill="transparent"></rect>
+            </svg>
+            <svg>
+                <rect stroke-width="10" rx="8" height="150" width="150" y="25" x="25" stroke="#ffffff" fill="transparent"></rect>
+            </svg>
+        </div>
+        <div class="audio-remaining-time">
+            00:00
+        </div>
+        <div class="play">
+            <img src="/images/meditation_images/play-button.png" alt="play">
+        </div>
+    </div>
     <div class="durations"></div>
     <div class="seasons"></div>
 </div>
