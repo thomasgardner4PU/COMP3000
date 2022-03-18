@@ -163,3 +163,8 @@ exports.logout = async (req, res, next) => {
 exports.loadMeditationPage = async (req, res, next) => {
 
 }
+
+/* ======================================================
+       Section 3 - ToDo Management View functionality
+=========================================================
+ */

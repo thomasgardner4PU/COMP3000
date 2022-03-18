@@ -21,25 +21,8 @@ const db = mysql.createConnection({
     database: process.env["DATABASE"]
 })
 
-// enable CORS
-// app.use(cors({
-//     origin: ["http://localhost5001"],
-//     methods: ["GET", "POST"],
-//     credentials: true
-// }));
 app.use(cookieParser()); //setup cookies in browser
 app.use(bodyParser.urlencoded({ extended: true}));
-
-// app.use(
-//     session({
-//         key: "userId",
-//         secret: "something",
-//         resave: false,
-//         saveUninitialized: false,
-//         cookie: {
-//             expires: 60 * 60 * 24,
-//     },
-// }));
 
 // parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({extended: false}))
