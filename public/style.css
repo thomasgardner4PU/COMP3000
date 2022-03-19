@@ -167,8 +167,21 @@ nav li a:hover{
 /* SEASONS */
 .seasons{
     grid-area: s;
-    background-color: blue;
-    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40% 0;
+}
+
+.seasons .season img{
+    width: 75px;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 15px #222);
+}
+/*Toggle menu*/
+.toggle-menu{
+    display: none;
 }
 
 /*media query for small screens*/
@@ -178,6 +191,15 @@ nav li a:hover{
 
     .video video {
         height: 100%;
+    }
+    /* APP */
+    .app{
+        grid-template-areas:
+                "a"
+                "a"
+                "a"
+                "d";
+
     }
 
     /* Audio */
@@ -216,6 +238,51 @@ nav li a:hover{
 
     .durations .duration p{
         font-size: 1rem;
+    }
+
+    /* Seasons */
+
+    .seasons{
+        position: absolute;
+        top: 20px;
+        left: -250px;
+        padding: 0;
+
+        flex-direction: row;
+
+        background-color: #fff;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .seasons .season{
+        margin-left: 10px;
+    }
+
+    /* Toggle menu */
+
+    .toggle-menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 5px;
+
+        margin-left: 10px;
+
+        border-radius: 50%;
+
+        transition: background 500ms ease-in-out;
+
+
+    }
+    .toggle-menu:hover{
+        background-color: rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    .seasons .season img{
+        width: 50px;
+        filter: none;
     }
 }
 
