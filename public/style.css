@@ -188,6 +188,11 @@ nav li a:hover{
 
         margin: 0 10px;
     }
+
+    .audio .play img .pause img{
+        width: 40px;
+    }
+
     .audio .progress svg {
         width: 175px;
         height: 175px;
@@ -198,6 +203,19 @@ nav li a:hover{
     }
     .audio .progress .audio-remaining-time{
         font-size: 1.75rem;
+    }
+
+    /* Durations */
+
+    .durations{
+        padding: 0 10%;
+    }
+    .durations .duration img{
+        width: 60px;
+    }
+
+    .durations .duration p{
+        font-size: 1rem;
     }
 }
 
