@@ -90,6 +90,12 @@ nav li a:hover{
             "a a a a s s"
             "d d d d s s"
             "d d d d s s";
+
+    transition: opacity 500ms ease-in-out;
+}
+
+.inactive{
+    opacity: 0;
 }
 
 /* AUDIO */
