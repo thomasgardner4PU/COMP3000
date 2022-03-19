@@ -134,8 +134,17 @@ nav li a:hover{
 /* DURATIONS */
 .durations{
     grid-area: d;
-    background-color: red;
-    opacity: 0.5;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 0 25%;
+}
+
+.durations .duration img{
+    width: 75px;
+    cursor: pointer;
 }
 
 /* SEASONS */
@@ -153,4 +162,26 @@ nav li a:hover{
     .video video {
         height: 100%;
     }
+
+    /* Audio */
+
+    .audio .progress{
+        width:  175px;
+        height: 175px;
+
+        margin: 0 10px;
+    }
+    .audio .progress svg {
+        width: 175px;
+        height: 175px;
+    }
+    .audio .progress .rect1 .rect{
+        width: 125px;
+        height: 125px;
+    }
+    .audio .progress .audio-remaining-time{
+        font-size: 1.75rem;
+    }
 }
+
+
