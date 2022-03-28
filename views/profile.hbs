@@ -31,14 +31,17 @@
                     <input type="file" name="sampleFile" accept="image/*"/>
                     <input type="submit" class="btn btn-primary">
                 </form>
+                <div class="card">
+                    <img class="card__image" src="/images/Avatar.png" alt="User Profile Image">
+                    <h1 class="card__title">Welcome! {{user.name}}</h1>
+                    <p>
+                        Tell us about yourself!
+                    </p>
+                    <button type="button" class="btn btn-primary">{{user.email}}</button>
+                </div>
 <!--                <div class="avatar-ctn">-->
 <!--                    <img src="/images/Avatar.png" class="avatar" ALT="User Profile Picture">-->
 <!--                </div>-->
-                <div class="card-body">
-                    <h5 class="card-title">{{user.name}}</h5>
-                    <p class="card-text">Quick example text</p>
-                    <a href="#" class="btn btn-primary">{{user.email}}</a>
-                </div>
             </div>
         </div>
         <div class="col-8">
