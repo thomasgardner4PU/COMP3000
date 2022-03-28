@@ -37,6 +37,7 @@ app.set('view engine', 'hbs')
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
+app.use(express.static('upload'));
 
 db.connect( (error) => {
     if(error) {
