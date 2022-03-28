@@ -40,5 +40,6 @@ let audioDuration = 120; // 2minutes
 duration.forEach( duration => {
     duration.addEventListener('click', () => {
         audioDuration = duration.getAttribute('audio-duration');
+        console.log(audioDuration)
     })
 })
