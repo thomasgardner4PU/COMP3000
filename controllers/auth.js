@@ -163,18 +163,29 @@ exports.logout = async (req, res, next) => {
 =========================================================
  */
 
-exports.addProfilePicture = async (req, res, next) => {
+exports.addProfilePicture = (req, res, next) => {
     let sampleFile;
     let uploadPath;
 
     //check request to see whether we are getting the file or not
-
     if (!req.files || Object.keys(req.files).length === 0){
         return res.status(400).send('no files were uploaded.');
     }
 
+    // name of the input is sampleFile
     sampleFile = req.files.sampleFile;
+    uploadPath = __dirname + '/upload' + sampleFile.name;
     console.log(sampleFile)
+
+
+    // use mv() to place file on the server
+    sampleFile.mv(uploadPath, function (err) {
+        if (err) return res.status(500).send(err);
+
+        res.send('File Uploaded!')
+    });
+
+
 
 }
 
