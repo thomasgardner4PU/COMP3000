@@ -7,11 +7,14 @@ const session = require('express-session');
 const multer = require('multer');
 const port = require("dotenv");
 const mysql = require('mysql');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 
-require('dotenv').config();
+// default option
+app.use(fileUpload());
 
+require('dotenv').config();
 
 
 const db = mysql.createConnection({
