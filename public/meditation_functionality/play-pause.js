@@ -39,7 +39,7 @@ let audioDuration = 120; // 2minutes
 duration.forEach( duration => {
     duration.addEventListener('click', () => {
         audioDuration = duration.getAttribute('audio-duration');
-        console.log(audioDuration)
+        update();
     })
 })
 
@@ -65,10 +65,26 @@ function update(){
     // stoke dashoffset is proportional to the portionPlayed
     path.style.strokeDashoffset = -portionPlayed * pathLength;
 
+    // calculate remaining time in seconds
+    let remainingTimeInSec = audioDuration - audio.currentTime;
+    renderRemainingTime(remainingTimeInSec);
+
     if (!audio.paused){
         requestAnimationFrame(update);
         console.log("update");
     }
 }
-
 update();
+
+// render remaining time
+function renderRemainingTime(timeInSec){
+    let min = Math.floor(timeInSec / 60);
+    let sec = Math.floor(timeInSec % 60);
+
+    // if min/sec is a single digit(ex:9) we add a zero to the beginning of the digit (ex: 9 becomes 09)
+    min = min < 10 ? `0${min}` : min;
+    sec = min < 10 ? `0${sec}` : sec;
+
+
+    remainingTimeEl.innerHTML = `${min}:${sec}`;
+}
