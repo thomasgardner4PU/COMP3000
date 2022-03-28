@@ -6,6 +6,8 @@ const mysql = require("mysql")
 const {decode} = require("jsonwebtoken");
 const cors = require("cors");
 const {token} = require("mysql");
+const {expires} = require("express-session/session/cookie");
+const fileUpload = require("express-fileupload");
 
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
@@ -157,12 +159,25 @@ exports.logout = async (req, res, next) => {
 }
 
 /* ======================================================
-       Section 2 - Meditation View functionality
+       Section 2 - Profile picture functionality
 =========================================================
  */
-exports.loadMeditationPage = async (req, res, next) => {
+
+exports.addProfilePicture = async (req, res, next) => {
+    let sampleFile;
+    let uploadPath;
+
+    //check request to see whether we are getting the file or not
+
+    if (!req.files || Object.keys(req.files).length === 0){
+        return res.status(400).send('no files were uploaded.');
+    }
+
+    sampleFile = req.files.sampleFile;
+    console.log(sampleFile)
 
 }
+
 
 /* ======================================================
        Section 3 - ToDo Management View functionality
