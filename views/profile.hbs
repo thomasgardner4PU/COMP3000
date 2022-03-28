@@ -26,9 +26,13 @@
     <div class="row">
         <div class="col-4">
             <div class="card">
-                <div class="avatar-ctn">
-                    <img src="/images/Avatar.png" class="avatar" ALT="User Profile Picture">
-                </div>
+                <form action="/profile" method="post" enctype="multipart/form-data">
+                    <h3>Upload Profile Photo</h3>
+
+                </form>
+<!--                <div class="avatar-ctn">-->
+<!--                    <img src="/images/Avatar.png" class="avatar" ALT="User Profile Picture">-->
+<!--                </div>-->
                 <div class="card-body">
                     <h5 class="card-title">{{user.name}}</h5>
                     <p class="card-text">Quick example text</p>
