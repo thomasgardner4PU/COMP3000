@@ -1,5 +1,4 @@
 // select the play and pause buttons
-
 const play = document.querySelector('.play'),
     pause = document.querySelector('.pause');
     // select audio element
@@ -10,5 +9,9 @@ play.addEventListener('click', () => {
     })
 
 play.addEventListener('click', () => {
+    audio.play();
+})
+
+pause.addEventListener('click', () => {
     audio.pause();
 })
