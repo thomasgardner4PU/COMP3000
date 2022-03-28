@@ -34,6 +34,10 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 
 });
 
+router.post('/profile', authController.addProfilePicture, (req, res) => {
+    res.render('profile');
+})
+
 
 router.get('/meditations', authController.isLoggedIn, ( req,res) => {
     if ( req.user) {
