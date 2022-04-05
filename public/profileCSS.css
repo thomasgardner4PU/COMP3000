@@ -1,9 +1,0 @@
-img {
-    width: 100%;
-}
-
-.wrapper{
-    display: grid;
-    place-items: center;
-    height: 100vh;
-}
