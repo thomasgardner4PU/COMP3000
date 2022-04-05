@@ -174,7 +174,7 @@ exports.addProfilePicture = (req, res, next) => {
 
     // name of the input is sampleFile
     sampleFile = req.files.sampleFile;
-    uploadPath = __dirname + '/upload' + sampleFile.name;
+    uploadPath = __dirname + '/public' + sampleFile.name;
     console.log(sampleFile)
 
 
