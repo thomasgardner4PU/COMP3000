@@ -22,7 +22,7 @@ const db = mysql.createConnection({
     user: process.env["DATABASE_USER"],
     password: process.env["DATABASE_PASSWORD"],
     database: process.env["DATABASE"]
-})
+});
 
 app.use(cookieParser()); //setup cookies in browser
 app.use(bodyParser.urlencoded({ extended: true}));
