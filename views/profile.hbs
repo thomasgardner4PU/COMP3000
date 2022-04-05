@@ -24,35 +24,29 @@
 </nav>
 
 <div class="wrapper">
+    <form action="/profile" method="post" enctype="multipart/form-data">
+        <h3>Upload Profile Photo</h3>
+        <input type="file" name="sampleFile" accept="image/*"/>
+        <input type="submit" class="btn btn-primary">
+
+    </form>
+        <div class="card">
+            <img class="card__image" src="/images/Avatar.png" alt="User Profile Image">
+            <h1 class="card__Title">Name</h1>
+            <div class="card__job">Job Title</div>
+            <p class="card__about">Job Description</p>
+            <!--                    <button type="button" class="btn btn-primary"></button>-->
+        </div>
+        <!--                <div class="avatar-ctn">-->
+        <!--                    <img src="/images/Avatar.png" class="avatar" ALT="User Profile Picture">-->
+        <!--                </div>-->
+        <div class="card-body">
+            <h5 class="card-title"> Welcome! {{user.name}}</h5>
+            <h5 class="card-email"> {{user.email}}</h5>
+        </div>
 
 <div class="container mt-4">
     <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <form action="/profile" method="post" enctype="multipart/form-data">
-                    <h3>Upload Profile Photo</h3>
-                    <input type="file" name="sampleFile" accept="image/*"/>
-                    <input type="submit" class="btn btn-primary">
-                </form>
-                <div class="card">
-                    <img class="card__image" src="/images/Avatar.png" alt="User Profile Image">
-
-                    <h1 class="card__Title">Name</h1>
-
-                    <div class="card__job">Job Title</div>
-
-                    <p class="card__about">Job Description</p>
-<!--                    <button type="button" class="btn btn-primary"></button>-->
-                </div>
-<!--                <div class="avatar-ctn">-->
-<!--                    <img src="/images/Avatar.png" class="avatar" ALT="User Profile Picture">-->
-<!--                </div>-->
-                <div class="card-body">
-                    <h5 class="card-title"> Welcome! {{user.name}}</h5>
-                    <h5 class="card-email"> {{user.email}}</h5>
-                </div>
-            </div>
-        </div>
         <div class="col-8">
             <div class="card text-center">
                 <div class="card-header">
