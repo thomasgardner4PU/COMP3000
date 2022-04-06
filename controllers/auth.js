@@ -16,6 +16,15 @@ const db = mysql.createConnection({
     database: process.env["DATABASE"]
 });
 
+// Connection Pool
+const pool = mysql.createPool({
+    connectionLimit: 10,
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'comp3000'
+});
+
 
 /* ======================================================
        Section 1 - Login/register & user profile functionality
@@ -163,7 +172,7 @@ exports.logout = async (req, res, next) => {
 =========================================================
  */
 
-exports.addProfilePicture = (req, res, next) => {
+exports.addProfilePicture = (req, res) => {
     let sampleFile;
     let uploadPath;
 
@@ -180,12 +189,39 @@ exports.addProfilePicture = (req, res, next) => {
 
     // use mv() to place file on the server
     sampleFile.mv(uploadPath, function (err) {
+
         if (err) return res.status(500).send(err);
 
-        res.send('File Uploaded!')
+        pool.getConnection((err, connection) => {
+            if (err) throw err; // not connected
+            console.log('Connected');
+
+            connection.query('UPDATE userProfileImageTbl SET profile_image = ? WHERE id ="1"', [sampleFile.name], (err, rows) => {
+                if (!err) {
+                    res.redirect('/profile');
+                } else {
+                    console.log(err);
+                }
+            });
+        });
     });
+}
+
+exports.getProfilePicture = (req, res) => {
 
 
+    pool.getConnection((err, connection) => {
+
+        if (err) throw err;
+        console.log('Connected');
+
+        connection.query('SELECT * FROM userProfileImageTbl WHERE id = "1"', (err, rows) => {
+            connection.release();
+            if (!err) {
+                res.render('profile', { rows });
+            }
+        })
+    })
 
 }
 
