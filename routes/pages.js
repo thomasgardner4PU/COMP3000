@@ -38,6 +38,10 @@ router.post('/profile', authController.addProfilePicture, (req, res) => {
     res.render('profile');
 })
 
+router.get('/profile', authController.getProfilePicture, (req, res) => {
+    res.render('profile')
+})
+
 
 router.get('/meditations', authController.isLoggedIn, ( req,res) => {
     if ( req.user) {
