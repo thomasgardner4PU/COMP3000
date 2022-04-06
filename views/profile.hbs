@@ -23,26 +23,30 @@
 </nav>
 
 <div class="wrapper">
-    <form action="/profile" method="post" enctype="multipart/form-data">
+    <form action="/profile" method="POST" encType="multipart/form-data">
         <h3>Upload Profile Photo</h3>
-        <input type="file" name="sampleFile" accept="image/*"/>
+        <input type="file" name="sampleFile" accept="image/*" />
         <input type="submit" class="btn btn-primary">
-
     </form>
-        <div class="card">
-            <img class="card__image" src="/images/Avatar.png" alt="User Profile Image">
-            <h1 class="card__Title">Name</h1>
-            <div class="card__job">Job Title</div>
-            <p class="card__about">Job Description</p>
-            <!--                    <button type="button" class="btn btn-primary"></button>-->
-        </div>
-        <!--                <div class="avatar-ctn">-->
-        <!--                    <img src="/images/Avatar.png" class="avatar" ALT="User Profile Picture">-->
-        <!--                </div>-->
-        <div class="card-body">
-            <h5 class="card-title"> Welcome! {{user.name}}</h5>
-            <h5 class="card-email"> {{user.email}}</h5>
-        </div>
+
+    <div class="card">
+        {{#each rows}}
+
+            {{#if this.profile_image}}
+                <img class="card__image" src="{{this.profile_image}}" alt="User Profile">
+            {{else}}
+                <img class="card__image" src="/images/Avatar.png" alt="User Profile">
+            {{/if}}
+
+            <h1 class="card__title">{{this.name}}</h1>
+            <div class="card__job">{{this.job_title}}</div>
+            <p class="card__about">
+                {{this.description}}
+            </p>
+            <button type="button" class="btn btn-primary">View Profile</button>
+        {{/each}}
+
+    </div>
 
     <div class="card text-center">
         <div class="card-header">
