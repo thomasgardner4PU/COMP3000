@@ -30,7 +30,6 @@
     </form>
 
     <div class="card">
-
     {{#if this.profileImage}}
                 <img class="card__image" src="http://localhost:5000/images/uploaded_images/{{this.profileImage}}" alt="User Profile">
     {{else}}
@@ -44,6 +43,18 @@
                 {{this.description}}
             </p>
             <button type="button" class="btn btn-primary">View Profile</button>
+    </div>
+    <div class="card text-center">
+        <div class="card-header">
+            Profile Page
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Hey {{user.name}}</h5>
+            <p class="card-text">This is your profile page, to get started please upload a profile picture so everyone knows who you are!</p>
+        </div>
+        <div class="card-footer text-muted">
+            Profile Card
+        </div>
     </div>
 </div>
 
