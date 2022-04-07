@@ -30,35 +30,20 @@
     </form>
 
     <div class="card">
-        {{#each rows}}
 
-            {{#if this.profile_image}}
-                <img class="card__image" src="{{this.profile_image}}" alt="User Profile">
-            {{else}}
+    {{#if this.profileImage}}
+                <img class="card__image" src="http://localhost:5000/images/uploaded_images/{{this.profileImage}}" alt="User Profile">
+    {{else}}
                 <img class="card__image" src="/images/Avatar.png" alt="User Profile">
-            {{/if}}
+        {{/if}}
 
-            <h1 class="card__title">{{this.name}}</h1>
+
+            <h1 class="card__title">{{user.name}}</h1>
             <div class="card__job">{{this.job_title}}</div>
             <p class="card__about">
                 {{this.description}}
             </p>
             <button type="button" class="btn btn-primary">View Profile</button>
-        {{/each}}
-
-    </div>
-
-    <div class="card text-center">
-        <div class="card-header">
-            Profile Page
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Hey {{user.name}}</h5>
-            <p class="card-text">This is your profile page, to get started please upload a profile picture so everyone knows who you are!</p>
-        </div>
-        <div class="card-footer text-muted">
-            Profile Card
-        </div>
     </div>
 </div>
 

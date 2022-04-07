@@ -13,7 +13,8 @@ const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
     user: process.env["DATABASE_USER"],
     password: process.env["DATABASE_PASSWORD"],
-    database: process.env["DATABASE"]
+    database: process.env["DATABASE"],
+    filepath: process.env["DATABASE_IMAGES"]
 });
 
 // Connection Pool
@@ -23,6 +24,11 @@ const pool = mysql.createPool({
     user: 'root',
     password: '',
     database: 'comp3000'
+});
+
+pool.getConnection((err, connection) => {
+    if (err) throw err; // not connected
+    console.log('Connected!');
 });
 
 
@@ -56,9 +62,6 @@ exports.login = async (req, res) => {
 
                 console.log("The token is: " + token);
 
-                // req.session.user = results;
-                // console.log(req.session.user)
-
                 const cookieOptions = {
                     expires: new Date(
                         Date.now() + process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000
@@ -81,11 +84,6 @@ exports.login = async (req, res) => {
 
 exports.register = (req, res) => {
     console.log(req.body);
-
-    // let name = req.body.name;
-    // let email = req.body.email;
-    // let password = req.body.password;
-    // let passwordConfirm = req.body.passwordConfirm;
 
     let { name, email, password, passwordConfirm } = req.body;
     db.query('SELECT email FROM user WHERE email = ?', [email], async (error, results) => {
@@ -172,57 +170,51 @@ exports.logout = async (req, res, next) => {
 =========================================================
  */
 
+exports.getProfilePicture = (req, res, next) => {
+
+    pool.getConnection((err, connection) => {
+        if (err) throw err; // not connected
+        console.log('Connected!');
+
+        connection.query('SELECT * FROM userprofileimagetbl WHERE id = "1"', (err, rows) => {
+          // Once done, release connection
+          connection.release();
+          if (!err) {
+            // res.render('profile', { rows });
+              req.PFP = rows[0].profile_image
+              next();
+          }
+        });
+
+      });
+}
+
 exports.addProfilePicture = (req, res) => {
     let sampleFile;
     let uploadPath;
 
-    //check request to see whether we are getting the file or not
-    if (!req.files || Object.keys(req.files).length === 0){
-        return res.status(400).send('no files were uploaded.');
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
     }
 
     // name of the input is sampleFile
     sampleFile = req.files.sampleFile;
-    uploadPath = __dirname + '/public' + sampleFile.name;
-    console.log(sampleFile)
+    uploadPath = process.env.database_images + '/' + sampleFile.name;
 
+    console.log(sampleFile);
 
-    // use mv() to place file on the server
+    // Use mv() to place file on the server
     sampleFile.mv(uploadPath, function (err) {
-
         if (err) return res.status(500).send(err);
 
-        pool.getConnection((err, connection) => {
-            if (err) throw err; // not connected
-            console.log('Connected');
-
-            connection.query('UPDATE userProfileImageTbl SET profile_image = ? WHERE id ="1"', [sampleFile.name], (err, rows) => {
-                if (!err) {
-                    res.redirect('/profile');
-                } else {
-                    console.log(err);
-                }
-            });
+        db.query('UPDATE userprofileimagetbl SET profile_image = ? WHERE id ="1"', [sampleFile.name], (err, rows) => {
+            if (!err) {
+                res.redirect('/profile');
+            } else {
+                console.log(err);
+            }
         });
     });
-}
-
-exports.getProfilePicture = (req, res) => {
-
-
-    pool.getConnection((err, connection) => {
-
-        if (err) throw err;
-        console.log('Connected');
-
-        connection.query('SELECT * FROM userProfileImageTbl WHERE id = "1"', (err, rows) => {
-            connection.release();
-            if (!err) {
-                res.render('profile', { rows });
-            }
-        })
-    })
-
 }
 
 

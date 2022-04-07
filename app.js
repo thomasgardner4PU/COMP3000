@@ -1,11 +1,7 @@
 const express = require("express");
 const path = require('path');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
-const session = require('express-session');
-const multer = require('multer');
-const port = require("dotenv");
 const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
 
@@ -16,6 +12,8 @@ app.use(fileUpload());
 
 require('dotenv').config();
 
+const publicDirectory = path.join(__dirname, './public');
+app.use(express.static(publicDirectory));
 
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
@@ -35,9 +33,7 @@ app.use(express.json());
 
 app.set('view engine', 'hbs')
 
-const publicDirectory = path.join(__dirname, './public');
-app.use(express.static(publicDirectory));
-app.use(express.static('upload'));
+
 
 db.connect( (error) => {
     if(error) {
@@ -51,6 +47,6 @@ db.connect( (error) => {
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
-app.listen(5001, () => {
-    console.log("Server started on Port 5001")
+app.listen(5000, () => {
+    console.log("Server started on Port 5000")
 });

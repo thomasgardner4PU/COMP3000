@@ -22,10 +22,12 @@ router.get('/login', (req, res) =>{
 
 
 // creating middleware
-router.get('/profile', authController.isLoggedIn, (req, res) => {
+router.get('/profile', authController.isLoggedIn, authController.getProfilePicture,  (req, res) => {
     if ( req.user) {
+        console.log(req.user)
         res.render('profile', {
-            user: req.user
+            user: req.user,
+            profileImage: req.PFP
         });
     } else {
         res.redirect('/login');
@@ -38,9 +40,10 @@ router.post('/profile', authController.addProfilePicture, (req, res) => {
     res.render('profile');
 })
 
-router.get('/profile', authController.getProfilePicture, (req, res) => {
-    res.render('profile')
-})
+// router.get('/profile', authController.getProfilePicture, (req, res) => {
+//     console.log()
+//     res.render('profile', {name:"Thomas"})
+// })
 
 
 router.get('/meditations', authController.isLoggedIn, ( req,res) => {

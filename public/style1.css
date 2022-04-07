@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+{
+"version": 3,
+"mappings": "AAAA,OAAO,CAAC,6EAAI;AAEZ,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,CAAC;EACT,WAAW,EAAE,qBAAqB;EAClC,gBAAgB,EAAE,OAAO;CAC1B;;AAED,AAAA,GAAG,CAAC;EAAE,KAAK,EAAE,IAAI;CAAI;;AAErB,AAAA,QAAQ,CAAC;EACP,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,MAAM,EAAE,KAAK;CACd;;AAED,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,IAAI;EACZ,KAAK,EAAC,IAAI;EACV,OAAO,EAAE,SAAS;EAClB,UAAU,EAAE,MAAM;EAClB,eAAe,EAAE,IAAI;EACrB,OAAO,EAAE,YAAY;EACrB,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,OAAO;EACf,MAAM,EAAE,OAAO;EACf,KAAK,EAAE,IAAI;EACX,aAAa,EAAE,GAAG;CACnB;;AAED,AAAA,YAAY,CAAC;EAAE,gBAAgB,EAAE,OAAO;CAAI;;AAE5C,AAAA,KAAK,CAAC;EACJ,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,GAAG;EAClB,UAAU,EAAE,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,gBAAgB,EAAE,CAAC,CAAC,GAAG,CAAC,IAAI,CAAC,mBAAmB;EACxE,gBAAgB,EAAE,IAAI;CAiBvB;;AAfE,AAAD,YAAQ,CAAC;EACP,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,MAAM;EACd,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,GAAG;EAClB,QAAQ,EAAE,MAAM;EAChB,UAAU,EAAE,KAAK;EACjB,UAAU,EAAE,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,gBAAgB,EAAE,CAAC,CAAC,GAAG,CAAC,IAAI,CAAC,mBAAmB;EACxE,MAAM,EAAE,cAAc;CACvB;;AAEA,AAAD,YAAQ,CAAC;EAAE,MAAM,EAAE,CAAC;CAAI;;AACvB,AAAD,UAAM,CAAC;EAAE,KAAK,EAAE,OAAO;CAAG",
+"sources": [
+"main.scss"
+],
+"names": [],
+"file": "main.css"
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -10,7 +20,8 @@ img {
     width: 100%;
 }
 
-.wrapper{
+.wrapper {
+    display: -ms-grid;
     display: grid;
     place-items: center;
     height: 100vh;
@@ -18,7 +29,7 @@ img {
 
 .btn {
     border: none;
-    color:#fff;
+    color: #fff;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -39,26 +50,30 @@ img {
     width: 360px;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0 ,0, 0.13);
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
     background-color: #fff;
 }
 
-&__image {
-     display: block;
-     margin: 0 auto;
-     width: 100px;
-     height: 100px;
-     border-radius: 50%;
-     overflow: hidden;
-     object-fit: cover;
-     box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
-     border: 3px solid #fff;
- }
+.card__image {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0), 0 6px 36px rgba(0, 0, 0, 0.13);
+    border: 3px solid #fff;
+}
 
-&__Title {
+.card__title {
     margin: 0;
 }
-&__job {
+
+.card__job {
     color: #6E8192;
 }
 
