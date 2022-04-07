@@ -12,7 +12,7 @@
 <body>
 
 <nav>
-    <h4>User Profile Page</h4>
+    <h4>My Profile</h4>
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/profile">Profile</a></li>
@@ -24,7 +24,7 @@
 
 <div class="wrapper">
     <form action="/profile" method="POST" encType="multipart/form-data">
-        <h3>Upload Profile Photo</h3>
+        <h3>Upload Your Profile picture</h3>
         <input type="file" name="sampleFile" accept="image/*" />
         <input type="submit" class="btn btn-primary">
     </form>
@@ -35,14 +35,11 @@
     {{else}}
                 <img class="card__image" src="/images/Avatar.png" alt="User Profile">
         {{/if}}
-
-
             <h1 class="card__title">{{user.name}}</h1>
-            <div class="card__job">{{this.job_title}}</div>
             <p class="card__about">
                 {{this.description}}
             </p>
-            <button type="button" class="btn btn-primary">View Profile</button>
+            <button type="button" class="btn btn-primary">Find out more!</button>
     </div>
     <div class="card text-center">
         <div class="card-header">

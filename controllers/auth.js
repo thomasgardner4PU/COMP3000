@@ -9,6 +9,10 @@ const {token} = require("mysql");
 const {expires} = require("express-session/session/cookie");
 const fileUpload = require("express-fileupload");
 
+
+// for user profile image
+const defaultImage = "Avatar.png";
+
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
     user: process.env["DATABASE_USER"],
@@ -47,14 +51,15 @@ exports.login = async (req, res) => {
             })
         }
 
-        db.query('SELECT * FROM user WHERE email = ?', [email], async (error, results) => {
+        db.query('SELECT * FROM usertbl WHERE email = ?', [email], async (error, results) => {
 
             if ( !results || !(await bcrypt.compare(password, results[0].password) ) ) {
                 res.status(401).render('login', {
                     message: 'Email or password is incorrect'
                 });
             } else {
-                const id = results[0].id;
+                const id = results[0].user_id;
+                // console.log(id)
 
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
                     expiresIn: process.env.JWT_EXPIRES_IN
@@ -83,10 +88,10 @@ exports.login = async (req, res) => {
 
 
 exports.register = (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     let { name, email, password, passwordConfirm } = req.body;
-    db.query('SELECT email FROM user WHERE email = ?', [email], async (error, results) => {
+    db.query('SELECT email FROM usertbl WHERE email = ?', [email], async (error, results) => {
         if(error) {
             console.log(error);
         }
@@ -104,7 +109,7 @@ exports.register = (req, res) => {
        let hashedPassword = await bcrypt.hash(password, 8);
         console.log(hashedPassword);
 
-        db.query('INSERT INTO user SET ? ', {name: name, email: email, password: hashedPassword }, (error, results) => {
+        db.query('INSERT INTO usertbl SET ? ', {name: name, email: email, password: hashedPassword }, (error, results) => {
             if(error){
                 console.log(error);
             } else {
@@ -121,9 +126,8 @@ exports.isLoggedIn = async (req, res, next) => {
     // // creating a variable inside of a request called message as shown below, and
     // // req.message = "inside middleware";
     // // next is to ensure that we can render the page, or else the function won't run properly
-    //
     console.log(req.cookies);
-    if ( req.cookies.jwt ) {
+    if ( req.cookies.jwt && req.cookies.jwt !== "logout"){
         try {
 
             // step 1 verify the token , make sure the token exists and which user has what token
@@ -132,7 +136,7 @@ exports.isLoggedIn = async (req, res, next) => {
             );
 
             // 2) check if the user still exists
-            db.query('SELECT * FROM user WHERE id = ?', [decoded.id], (error, result) => {
+            db.query('SELECT * FROM usertbl WHERE user_id = ?', [decoded.id], (error, result) => {
                 console.log(result);
 
                 if (!result) {
@@ -172,16 +176,21 @@ exports.logout = async (req, res, next) => {
 
 exports.getProfilePicture = (req, res, next) => {
 
+    // console.log(req);
     pool.getConnection((err, connection) => {
         if (err) throw err; // not connected
         console.log('Connected!');
 
-        connection.query('SELECT * FROM userprofileimagetbl WHERE id = "1"', (err, rows) => {
+        connection.query('SELECT * FROM userprofileimagetbl WHERE user_id = ?',[req.user.user_id],(err, rows) => {
           // Once done, release connection
           connection.release();
           if (!err) {
             // res.render('profile', { rows });
-              req.PFP = rows[0].profile_image
+              if (rows.length == 1){
+                  req.PFP = rows[0].profile_image
+              } else {
+                  req.PFP = defaultImage;
+              }
               next();
           }
         });
@@ -207,7 +216,7 @@ exports.addProfilePicture = (req, res) => {
     sampleFile.mv(uploadPath, function (err) {
         if (err) return res.status(500).send(err);
 
-        db.query('UPDATE userprofileimagetbl SET profile_image = ? WHERE id ="1"', [sampleFile.name], (err, rows) => {
+        db.query('INSERT INTO userprofileimagetbl (user_id, profile_image) VALUES (?, ?) ON DUPLICATE KEY UPDATE profile_image = ?', [req.user.user_id, sampleFile.name, sampleFile.name],(err, rows) => {
             if (!err) {
                 res.redirect('/profile');
             } else {

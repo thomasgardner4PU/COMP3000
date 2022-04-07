@@ -36,7 +36,7 @@ router.get('/profile', authController.isLoggedIn, authController.getProfilePictu
 
 });
 
-router.post('/profile', authController.addProfilePicture, (req, res) => {
+router.post('/profile', authController.isLoggedIn, authController.addProfilePicture, (req, res) => {
     res.render('profile');
 })
 
