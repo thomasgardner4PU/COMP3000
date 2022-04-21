@@ -53,6 +53,7 @@ exports.login = async (req, res) => {
 
         db.query('SELECT * FROM usertbl WHERE email = ?', [email], async (error, results) => {
 
+            // when logging in with incorrect details, app crashes..
             if ( !results || !(await bcrypt.compare(password, results[0].password) ) ) {
                 res.status(401).render('login', {
                     message: 'Email or password is incorrect'
