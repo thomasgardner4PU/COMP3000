@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
+const layout = require('express-layout');
+const ejs = require('ejs');
 
 const app = express();
 
@@ -31,7 +33,8 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
 
-app.set('view engine', 'hbs')
+app.set('view engine', 'hbs');
+// app.set('view engine', 'ejs');
 
 
 
