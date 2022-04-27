@@ -60,5 +60,7 @@ router.get('/notes', (req, res) => {
     res.render('notes')
 })
 
+// router.post('/add_todo')
+
 
 module.exports = router;
