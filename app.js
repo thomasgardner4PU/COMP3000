@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
 const layout = require('express-layout');
-const ejs = require('ejs');
+const exphbs = require('express-handlebars')
 
 const app = express();
 
@@ -16,6 +16,8 @@ require('dotenv').config();
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
+
+
 
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
@@ -33,9 +35,18 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
 
+
+// const middleware = [
+//     layout(),
+//     express.static(path.join(__dirname, 'public')),
+//     bodyParser.urlencoded({extended: false})
+// ]
+// app.use(middleware)
+
+app.set('views', path.join(__dirname, 'views'))
+app.engine('.hbs', exphbs.engine({extname: '.hbs'}));
 app.set('view engine', 'hbs');
 // app.set('view engine', 'ejs');
-
 
 
 db.connect( (error) => {
