@@ -7,6 +7,8 @@ const fileUpload = require('express-fileupload');
 const layout = require('express-layout');
 const exphbs = require('express-handlebars')
 
+const handlebars = require('express-handlebars');
+
 const app = express();
 
 // default option
@@ -44,10 +46,13 @@ app.use(express.json());
 // app.use(middleware)
 
 app.set('views', path.join(__dirname, 'views'))
-app.engine('.hbs', exphbs.engine({extname: '.hbs'}));
+app.engine('.hbs', exphbs.engine(
+    {extname: '.hbs', defaultLayout: false, layoutsDir: "views/layouts/",
+    partialsDir : [
+        path.join(__dirname, 'views/partials/',)
+    ]}));
 app.set('view engine', 'hbs');
 // app.set('view engine', 'ejs');
-
 
 db.connect( (error) => {
     if(error) {
