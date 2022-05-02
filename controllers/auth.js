@@ -233,3 +233,26 @@ exports.addProfilePicture = (req, res) => {
        Section 3 - ToDo Management View functionality
 =========================================================
  */
+
+exports.get_Todo = (req, res, next) => {
+    const queryString = "SELECT * FROM todos WHERE complete = '0'"
+    db.query(queryString, (err, rows, fields) => {
+        if (err) {
+            console.log("Failed to query @ /get_todo: " + err)
+            }
+        console.log("Getting data from database @ /get_todos")
+        res.json(rows)
+    })
+}
+
+exports.add_Todo = (req, res) => {
+    const todo = req.body.add_todo_input
+    const  queryString = "INSERT INTO todos (todo) VALUES (?)"
+    db.query(queryString, [todo], (err, rows, fields) => {
+        if (err) {
+            console.log("Failed to insert @ /get_todo: " + todo + "" + err)
+        }
+        console.log("@/add_todo : " + todo + " added.")
+        res.redirect('/notes')
+    })
+}
