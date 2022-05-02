@@ -154,8 +154,10 @@ exports.isLoggedIn = async (req, res, next) => {
             return next();
         }
     } else {
-        next();
+        res.redirect("/login")
+        // next();
     }
+
 
 };
 
@@ -234,7 +236,7 @@ exports.addProfilePicture = (req, res) => {
 =========================================================
  */
 
-exports.get_Todo = (req, res, next) => {
+exports.get_Todo = (req, res) => {
     const queryString = "SELECT * FROM todos WHERE complete = '0'"
     db.query(queryString, (err, rows, fields) => {
         if (err) {
@@ -253,6 +255,18 @@ exports.add_Todo = (req, res) => {
             console.log("Failed to insert @ /get_todo: " + todo + "" + err)
         }
         console.log("@/add_todo : " + todo + " added.")
+        res.redirect('/notes')
+    })
+}
+
+exports.complete_Todo = (req, res) => {
+    const todo_id = req.params.id
+    const queryString = "UPDATE todos SET complete = '1' WHERE todo_id = ?"
+    db.query(queryString, [todo_id], (err, rows, fields) => {
+        if (err) {
+            console.log("Failed to complete todo @ /complete_todo: " + todo_id + " " + err)
+        }
+        console.log("@/complete_todo/ completing todo with id" + todo_id)
         res.redirect('/notes')
     })
 }
