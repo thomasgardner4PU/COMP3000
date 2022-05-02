@@ -52,15 +52,25 @@ router.get('/meditations', authController.isLoggedIn, ( req,res) => {
 });
 
 router.get('/notes', authController.isLoggedIn, (req, res) => {
-    res.render('notes')
+    if ( req.user) {
+        res.render('notes', {
+            user: req.user
+        });
+    } else {
+        res.redirect('/login');
+    }
 })
 
-router.get('/get_todos',  authController.isLoggedIn, authController.get_Todo, (req,res) => {
+router.get('/get_todos', authController.get_Todo, (req,res) => {
     res.render('get_todo');
 })
 
-router.post('/add_todo' , authController.isLoggedIn, authController.add_Todo, (req, res) => {
+router.post('/add_todo' , authController.add_Todo, (req, res) => {
     res.render('add_todo');
+})
+
+router.post("/complete_todo/:id", authController.complete_Todo, (req, res) => {
+    res.render('complete_todo/:id');
 })
 
 
