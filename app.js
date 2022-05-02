@@ -7,8 +7,6 @@ const fileUpload = require('express-fileupload');
 const layout = require('express-layout');
 const exphbs = require('express-handlebars')
 
-const handlebars = require('express-handlebars');
-
 const app = express();
 
 // default option
@@ -20,13 +18,13 @@ const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
 
 
-
 const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
     user: process.env["DATABASE_USER"],
     password: process.env["DATABASE_PASSWORD"],
     database: process.env["DATABASE"]
 });
+
 
 app.use(cookieParser()); //setup cookies in browser
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -37,14 +35,6 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
 
-
-// const middleware = [
-//     layout(),
-//     express.static(path.join(__dirname, 'public')),
-//     bodyParser.urlencoded({extended: false})
-// ]
-// app.use(middleware)
-
 app.set('views', path.join(__dirname, 'views'))
 app.engine('.hbs', exphbs.engine(
     {extname: '.hbs', defaultLayout: false, layoutsDir: "views/layouts/",
@@ -52,7 +42,7 @@ app.engine('.hbs', exphbs.engine(
         path.join(__dirname, 'views/partials/',)
     ]}));
 app.set('view engine', 'hbs');
-// app.set('view engine', 'ejs');
+
 
 db.connect( (error) => {
     if(error) {
@@ -62,9 +52,11 @@ db.connect( (error) => {
     }
 })
 
+
 //define routes
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
+
 
 app.listen(5000, () => {
     console.log("Server started on Port 5000")
