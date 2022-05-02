@@ -40,11 +40,6 @@ router.post('/profile', authController.isLoggedIn, authController.addProfilePict
     res.render('profile');
 })
 
-// router.get('/profile', authController.getProfilePicture, (req, res) => {
-//     console.log()
-//     res.render('profile', {name:"Thomas"})
-// })
-
 
 router.get('/meditations', authController.isLoggedIn, ( req,res) => {
     if ( req.user) {
@@ -56,11 +51,17 @@ router.get('/meditations', authController.isLoggedIn, ( req,res) => {
     }
 });
 
-router.get('/notes', (req, res) => {
+router.get('/notes', authController.isLoggedIn, (req, res) => {
     res.render('notes')
 })
 
-// router.post('/add_todo')
+router.get('/get_todos',  authController.isLoggedIn, authController.get_Todo, (req,res) => {
+    res.render('get_todo');
+})
+
+router.post('/add_todo' , authController.isLoggedIn, authController.add_Todo, (req, res) => {
+    res.render('add_todo');
+})
 
 
 module.exports = router;
