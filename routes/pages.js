@@ -38,7 +38,7 @@ router.get('/profile', authController.isLoggedIn, authController.getProfilePictu
 
 router.post('/profile', authController.isLoggedIn, authController.addProfilePicture, (req, res) => {
     res.render('profile');
-})
+});
 
 
 router.get('/meditations', authController.isLoggedIn, ( req,res) => {
@@ -59,19 +59,27 @@ router.get('/notes', authController.isLoggedIn, (req, res) => {
     } else {
         res.redirect('/login');
     }
-})
+});
 
-router.get('/get_todos', authController.get_Todo, (req,res) => {
+router.get('/get_todos', authController.isLoggedIn, authController.get_Todo, (req,res) => {
     res.render('get_todo');
-})
+});
 
-router.post('/add_todo' , authController.add_Todo, (req, res) => {
+router.post('/add_todo' , authController.isLoggedIn, authController.add_Todo, (req, res) => {
     res.render('add_todo');
-})
+});
 
 router.post("/complete_todo/:id", authController.complete_Todo, (req, res) => {
     res.render('complete_todo/:id');
-})
+});
+
+router.get('/otherMeditations', (req,res) => {
+    res.render('otherMeditations')
+});
+
+router.get('/meditationSelection', (req,res) => {
+    res.render('meditationSelection')
+});
 
 
 module.exports = router;
