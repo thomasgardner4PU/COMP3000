@@ -237,8 +237,8 @@ exports.addProfilePicture = (req, res) => {
  */
 
 exports.get_Todo = (req, res) => {
-    const queryString = "SELECT * FROM todos WHERE complete = '0'"
-    db.query(queryString, (err, rows, fields) => {
+    const queryString = "SELECT * FROM todos WHERE user_id = ? AND complete = '0'"
+    db.query(queryString, [req.user.user_id], (err, rows, fields) => {
         if (err) {
             console.log("Failed to query @ /get_todo: " + err)
             }
@@ -249,8 +249,8 @@ exports.get_Todo = (req, res) => {
 
 exports.add_Todo = (req, res) => {
     const todo = req.body.add_todo_input
-    const  queryString = "INSERT INTO todos (todo) VALUES (?)"
-    db.query(queryString, [todo], (err, rows, fields) => {
+    const  queryString = "INSERT INTO todos (user_id, todo) VALUES (?, ?)"
+    db.query(queryString, [req.user.user_id, todo], (err, rows, fields) => {
         if (err) {
             console.log("Failed to insert @ /get_todo: " + todo + "" + err)
         }
