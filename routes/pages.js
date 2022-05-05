@@ -73,11 +73,11 @@ router.post("/complete_todo/:id", authController.complete_Todo, (req, res) => {
     res.render('complete_todo/:id');
 });
 
-router.get('/otherMeditations', (req,res) => {
+router.get('/otherMeditations', authController.isLoggedIn, (req,res) => {
     res.render('otherMeditations')
 });
 
-router.get('/meditationSelection', (req,res) => {
+router.get('/meditationSelection', authController.isLoggedIn, (req,res) => {
     res.render('meditationSelection')
 });
 
