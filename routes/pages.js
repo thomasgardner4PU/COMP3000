@@ -73,13 +73,17 @@ router.post("/complete_todo/:id", authController.complete_Todo, (req, res) => {
     res.render('complete_todo/:id');
 });
 
-router.get('/otherMeditations', authController.isLoggedIn, (req,res) => {
-    res.render('otherMeditations')
-});
+// router.get('/otherMeditations', authController.isLoggedIn, (req,res) => {
+//     res.render('otherMeditations')
+// });
 
 router.get('/meditationSelection', authController.isLoggedIn, (req,res) => {
     res.render('meditationSelection')
 });
+
+router.get('/new', authController.isLoggedIn, (req,res) => {
+    res.render('new');
+})
 
 
 module.exports = router;
