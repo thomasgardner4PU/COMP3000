@@ -4,6 +4,45 @@
     box-sizing: border-box;
 }
 
+nav {
+    background-color: #563d7c;
+    color: #fff;
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*
+    display: flex and justify-content will inside of the nav grab the one and another,
+    element and put both on different corners, they will be seperate.
+*/
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* will vertically align to center the il tags, as they are the children of the ul*/
+}
+
+nav li {
+    list-style-type: none; /* removes the dots */
+    margin: 0;
+    padding: 0;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 8px;
+}
+
+nav li a:hover{
+    color: yellow;
+    text-decoration: none;
+}
+
+/* Meditation View style */
+
 .app {
     height: 100vh;
     display: flex;
