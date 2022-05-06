@@ -1,5 +1,5 @@
 # COMP3000 - The Mindfulness Associate 
-The repository will be the primary source of code for the COMP3000 Computing Project 'Mindfulness' a meditation application for students who are struggling with the stress of coursework.
+The repository will be the primary source of code for the COMP3000 Computing Project 'The Mindfulness Associate' a meditation/managagement application for students who are struggling with the stress of life involving coursework, social relationships and employment.
 
 # Project Vision
 
