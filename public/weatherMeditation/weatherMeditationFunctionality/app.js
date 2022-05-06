@@ -20,6 +20,15 @@ const app = () => {
     outline.style.strokeDasharray = outlineLength;
     outline.style.strokeDashoffset = outlineLength;
 
+    //pick different sounds
+    sounds.forEach(sound => {
+        sound.addEventListener('click', function (){
+            song.src = this.getAttribute('data-sound');
+            video.src = this.getAttribute('data-video');
+            checkPlaying(song);
+        })
+    })
+
     // play sound
     play.addEventListener('click', () => {
         checkPlaying(song);
@@ -62,6 +71,13 @@ const app = () => {
         // animate the text
 
         timeDisplay.textContent = `${minutes}:${seconds}`;
+
+        if (currentTime >= fakeDuration) {
+            song.pause();
+            song.currentTime = 0;
+            play.src = '/weatherMeditation/svg/play.svg'
+            video.pause();
+        }
     }
 }
 
