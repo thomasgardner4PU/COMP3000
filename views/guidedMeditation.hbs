@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/guidedMeditation/guidedMeditation.css">
+    <title>Guided Meditation</title>
+</head>
+<body>
+
+<div class="input"><!-- inputs to determine number of breaths in session -->
+    <label> Select breaths </label>
+    <select class="breath-input">
+        <option value="3">3 Breaths</option>
+        <option value="5">5 Breaths</option>
+        <option value="7">7 Breaths</option>
+    </select>
+</div>
+<div class="circle-wrap">
+    <div class="circle-outline"></div>
+    <div class="circle-progress"></div>
+</div>
+<p class="breaths">Breaths remaining: <span class="breaths-text">3</span></p><!-- Calculate the amount of breaths remaining in session -->
+<p class="instructions">Are you ready to start breathing?</p> <!-- Instructions for walking user through the current session -->
+<button class="start"> Begin </button>
+<script src="/guidedMeditation/app.js"></script>
+</body>
+</html>
