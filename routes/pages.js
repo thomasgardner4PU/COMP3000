@@ -41,9 +41,9 @@ router.post('/profile', authController.isLoggedIn, authController.addProfilePict
 });
 
 
-router.get('/meditations', authController.isLoggedIn, ( req,res) => {
+router.get('/calmingMeditation', authController.isLoggedIn, ( req,res) => {
     if ( req.user) {
-        res.render('meditations', {
+        res.render('calmingMeditation', {
             user: req.user
         });
     } else {
@@ -77,8 +77,8 @@ router.get('/meditationSelection', authController.isLoggedIn, (req,res) => {
     res.render('meditationSelection')
 });
 
-router.get('/new', authController.isLoggedIn, (req,res) => {
-    res.render('new');
+router.get('/weatherMeditations', authController.isLoggedIn, (req,res) => {
+    res.render('weatherMeditations');
 })
 
 router.get('/guidedMeditation', authController.isLoggedIn, (req,res) => {
