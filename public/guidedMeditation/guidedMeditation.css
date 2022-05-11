@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: url("/guidedMeditation/bg.jpg");
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+
 nav {
     background-color: #563d7c;
     color: #fff;
@@ -32,24 +53,6 @@ nav li a:hover{
     text-decoration: none;
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background: url("/guidedMeditation/bg.jpg");
-    background-size: cover;
-}
 body::after{
     content: "";
     position: absolute;
