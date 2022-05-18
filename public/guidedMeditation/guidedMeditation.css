@@ -20,6 +20,14 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+body::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: -1;
+}
 
 nav {
     background-color: #563d7c;
@@ -27,7 +35,15 @@ nav {
     padding: 30px 60px;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top: 0px;
+    width: 100%;
 }
+
+/*
+    display: flex and justify-content will inside of the nav grab the one and another,
+    element and put both on different corners, they will be seperate.
+*/
 
 nav ul{
     display: flex;
@@ -46,22 +62,13 @@ nav li a {
     text-decoration: none;
     font-weight: bold;
     padding: 5px 8px;
+    left: 80px;
 }
 
 nav li a:hover{
     color: yellow;
     text-decoration: none;
 }
-
-body::after{
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.6);
-    z-index: -1;
-}
-
 
 
 .input{
@@ -87,6 +94,10 @@ body::after{
 
 .input select:focus{
     outline: none;
+}
+
+.input label{
+    color: #fff;
 }
 
 .circle-wrap{
@@ -124,11 +135,13 @@ body::after{
     text-align: center;
     margin-bottom: 24px;
     font-size: 24px;
+    color: #fff;
 }
 
 .instructions {
     text-align: center;
     margin-bottom: 32px;
+    color: #fff;
 }
 
 button {
@@ -142,6 +155,10 @@ button {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
+.start{
+    color: #fff;
+}
+
 button:hover {
     background-color: #f1f1f1;
     color: #6236ff;
@@ -149,7 +166,8 @@ button:hover {
 
 .button-inactive {
     pointer-events: none;
-    background-color: #969696;
+    /*background-color: #969696;*/
+    color: #fff;
 }
 
 

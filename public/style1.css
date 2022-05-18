@@ -77,7 +77,6 @@ img {
     color: #6E8192;
 }
 
-
 nav {
     background-color: #563d7c;
     color: #fff;
@@ -114,6 +113,7 @@ nav li a:hover{
     color: yellow;
     text-decoration: none;
 }
+
 
 .avatar-ctn {
     background-color: orange;
