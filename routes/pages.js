@@ -81,8 +81,8 @@ router.get('/weatherMeditations', authController.isLoggedIn, (req,res) => {
     res.render('weatherMeditations');
 })
 
-router.get('/guidedMeditation', authController.isLoggedIn, (req,res) => {
-    res.render('guidedMeditation');
+router.get('/guidedBreathing', authController.isLoggedIn, (req,res) => {
+    res.render('guidedBreathing');
 })
 
 
