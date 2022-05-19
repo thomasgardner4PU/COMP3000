@@ -25,10 +25,25 @@ To this end the aim of the mindfulness associate application is to help Plymouth
 students unwind, think clearly, and self-reflect hopefully allowing them to perform to the 
 best of their ability. 
 
+#How to run Project
+
+
 # User Stories 
 
-# UML
-
 # ERD
+![Alt text](/public/repoImages/COMP3000_ERD.png)
+
+# WireFrames
+
+## HomePage
+## LoginPage
+## RegisterPage
+## User Profile
+## User Todo's
+## Meditation Selection
+## Seasonal Meditation
+## breathing Meditation
+## Weather Meditation
+
 
 # Credit
