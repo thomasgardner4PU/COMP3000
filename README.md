@@ -58,3 +58,21 @@ To start app.js
 
 
 # Credit
+
+## breathingMeditation Image used on GuidedMeditation View
+https://unsplash.com/s/photos/breathe?orientation=landscape
+
+## Seasonal button icons used on SeasonalMeditation View 
+https://www.svgrepo.com/vectors/beach/
+https://www.svgrepo.com/vectors/winter/
+https://www.svgrepo.com/vectors/summer/
+https://www.svgrepo.com/vectors/spring/
+
+## Videos used on Seasonal and Weather meditation views
+### Winter Video https://www.youtube.com/watch?v=2i5eoAXHpsA
+### Summer Video https://www.youtube.com/watch?v=Faow3SKIzq0
+### Spring Video https://www.youtube.com/watch?v=V_6hy3SCNt0
+
+## SVG icons used on weather meditation
+https://www.svgrepo.com/vectors/raining/
+https://www.svgrepo.com/vectors/beach/
