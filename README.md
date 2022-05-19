@@ -26,13 +26,17 @@ students unwind, think clearly, and self-reflect hopefully allowing them to perf
 best of their ability. 
 
 # How to run Project
-To make new folder > mkdir my project 
-To start app.js > npm start
+To make new folder 
+> mkdir my project 
+
+
+To start app.js 
+> npm start
 
 # User Stories 
 
 # ERD
-![Alt text](/public/repoImages/COMP3000_ERD.png)
+![Alt text](repoImages/COMP3000_ERD.png)
 
 # WireFrames
 
