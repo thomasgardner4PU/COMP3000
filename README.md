@@ -25,8 +25,9 @@ To this end the aim of the mindfulness associate application is to help Plymouth
 students unwind, think clearly, and self-reflect hopefully allowing them to perform to the 
 best of their ability. 
 
-#How to run Project
-
+# How to run Project
+To make new folder > mkdir my project 
+To start app.js > npm start
 
 # User Stories 
 
