@@ -36,19 +36,28 @@ To start app.js
 # User Stories 
 
 # ERD
-![Alt text](/public/repoImages/COMP3000_ERD.png)
+![Alt text](/public/repoImages/COMP3000_ERD.drawio.png)
 
 # WireFrames
 
 ## HomePage
+![Alt text](/public/repoImages/HomePage.drawio.png)
 ## LoginPage
+![Alt text](/public/repoImages/Loginpage.drawio.png)
 ## RegisterPage
+![Alt text](/public/repoImages/RegisterPage.drawio.png)
 ## User Profile
+![Alt text](/public/repoImages/ProfilePage.drawio.png)
 ## User Todo's
+![Alt text](/public/repoImages/TodoPage.drawio.png)
 ## Meditation Selection
+![Alt text](/public/repoImages/meditationSelection.drawio.png)
 ## Seasonal Meditation
+![Alt text](/public/repoImages/seasonalMeditation.drawio.png)
 ## breathing Meditation
+![Alt text](/public/repoImages/breathingmeditation.drawio.png)
 ## Weather Meditation
+![Alt text](/public/repoImages/weatherMeditation.drawio.png)
 
 
 # Credit
