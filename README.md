@@ -36,7 +36,7 @@ To start app.js
 # User Stories 
 
 # ERD
-![Alt text](repoImages/COMP3000_ERD.png)
+![Alt text](/public/repoImages/COMP3000_ERD.png)
 
 # WireFrames
 
