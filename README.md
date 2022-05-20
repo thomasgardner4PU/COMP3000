@@ -1,6 +1,6 @@
 # Project Vision
 
-This project is to create a web/mobile application that is intended to be used by students 
+The aim of this project is to create a web/mobile application that is intended to be used by students 
 studying at Plymouth University, for the purpose of allowing those students to better
 manage and deal with the stress of coursework and exams.
 Due to the CoVID-19 pandemic the world sore the rise in numbers of mental health cases, to 
