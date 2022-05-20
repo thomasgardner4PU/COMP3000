@@ -23,11 +23,15 @@ students unwind, think clearly, and self-reflect hopefully allowing them to perf
 best of their ability. 
 
 # How to run Project
-To make new folder 
-> mkdir my project 
+## Make a new folder on your machine
 
+### Navigate to your desktop and right click > new folder 
 
-To start app.js 
+### or if you use terminal 
+> mkdir myproject 
+### Then 'cd' into the directory you created
+> cd myproject
+### To start app.js 
 > npm start
 
 # User Stories 
