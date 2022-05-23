@@ -1,9 +1,6 @@
-# COMP3000 - The Mindfulness Associate 
-The repository will be the primary source of code for the COMP3000 Computing Project 'The Mindfulness Associate' a meditation/managagement application for students who are struggling with the stress of life involving coursework, social relationships and employment.
-
 # Project Vision
 
-This project is to create a web/mobile application that is intended to be used by students 
+The aim of this project is to create a web/mobile application that is intended to be used by students 
 studying at Plymouth University, for the purpose of allowing those students to better
 manage and deal with the stress of coursework and exams.
 Due to the CoVID-19 pandemic the world sore the rise in numbers of mental health cases, to 
@@ -26,11 +23,15 @@ students unwind, think clearly, and self-reflect hopefully allowing them to perf
 best of their ability. 
 
 # How to run Project
-To make new folder 
-> mkdir my project 
+## Make a new folder on your machine
 
+### Navigate to your desktop and right click > new folder 
 
-To start app.js 
+### or if you use terminal 
+> mkdir myproject 
+### Then 'cd' into the directory you created
+> cd myproject
+### To start app.js 
 > npm start
 
 # User Stories 
@@ -61,3 +62,21 @@ To start app.js
 
 
 # Credit
+
+## breathingMeditation Image used on GuidedMeditation View
+https://unsplash.com/s/photos/breathe?orientation=landscape
+
+## Seasonal button icons used on SeasonalMeditation View 
+https://www.svgrepo.com/vectors/beach/
+https://www.svgrepo.com/vectors/winter/
+https://www.svgrepo.com/vectors/summer/
+https://www.svgrepo.com/vectors/spring/
+
+## Videos used on Seasonal and Weather meditation views
+### Winter Video https://www.youtube.com/watch?v=2i5eoAXHpsA
+### Summer Video https://www.youtube.com/watch?v=Faow3SKIzq0
+### Spring Video https://www.youtube.com/watch?v=V_6hy3SCNt0
+
+## SVG icons used on weather meditation
+https://www.svgrepo.com/vectors/raining/
+https://www.svgrepo.com/vectors/beach/
