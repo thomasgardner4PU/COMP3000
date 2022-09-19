@@ -6,6 +6,7 @@ const mysql = require('mysql');
 const fileUpload = require('express-fileupload');
 const layout = require('express-layout');
 const exphbs = require('express-handlebars')
+const {getAudioFileList} = require("./controllers/auth");
 
 const app = express();
 
@@ -61,3 +62,5 @@ app.use('/auth', require('./routes/auth'));
 app.listen(5000, () => {
     console.log("Server started on Port 5000")
 });
+
+getAudioFileList(1);

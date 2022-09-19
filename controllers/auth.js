@@ -8,6 +8,7 @@ const cors = require("cors");
 const {token} = require("mysql");
 const {expires} = require("express-session/session/cookie");
 const fileUpload = require("express-fileupload");
+const util = require("util");
 
 
 // for user profile image
@@ -275,4 +276,36 @@ exports.complete_Todo = (req, res) => {
         console.log("@/complete_todo/ completing todo with id" + todo_id)
         res.redirect('/notes')
     })
+}
+
+/*
+======================================================
+       Section 4 - Audio file management
+=========================================================
+ */
+
+
+const queryDB = util.promisify(db.query).bind(db);
+
+exports.getAudioFileList = async (userid) => {
+
+    const queryString  = "SELECT * FROM fileaccesstbl WHERE user_id = ?"
+
+    let list = []
+
+    try {
+        let rows = await queryDB(queryString, [userid])
+
+        for (let i in rows) {
+            // console.log(`${rows}: ${[i]}`);
+
+            list.push({"fileid":rows[i].file_id}, {"filename":rows[i].file_name})
+        }
+        return list
+    }
+    catch (error) {
+        console.log(error)
+        return null
+    }
+
 }
