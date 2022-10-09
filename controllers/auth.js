@@ -299,7 +299,7 @@ exports.getAudioFileList = async (userid) => {
         for (let i in rows) {
             // console.log(`${rows}: ${[i]}`);
 
-            list.push({"fileid":rows[i].file_id}, {"filename":rows[i].file_name})
+            list.push({"fileid":rows[i].file_path}, {"filename":rows[i].file_name})
         }
         return list
     }
