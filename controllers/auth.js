@@ -285,27 +285,29 @@ exports.complete_Todo = (req, res) => {
  */
 
 
-const queryDB = util.promisify(db.query).bind(db);
+// const queryDB = util.promisify(db.query).bind(db);
 
-exports.getAudioFileList = async (userid) => {
+// exports.getAudioFileList = async (userid) => {
 
-    const queryString  = "SELECT * FROM fileaccesstbl WHERE user_id = ?"
+//     const queryString  = "SELECT * FROM fileaccesstbl WHERE user_id = ?"
 
-    let list = []
+//     let list = []
 
-    try {
-        let rows = await queryDB(queryString, [userid])
+//     try {
+//         let rows = await queryDB(queryString, [userid])
 
-        for (let i in rows) {
-            // console.log(`${rows}: ${[i]}`);
+//         for (let i in rows) {
+//             // console.log(`${rows}: ${[i]}`);
 
-            list.push({"fileid":rows[i].file_path}, {"filename":rows[i].file_name})
-        }
-        return list
-    }
-    catch (error) {
-        console.log(error)
-        return null
-    }
+//             list.push({"fileid":rows[i].file_path}, {"filename":rows[i].file_name})
+//         }
+//         return list
+//     }
+//     catch (error) {
+//         console.log(error)
+//         return null
+//     }
 
-}
+// }
+
+exports.getAudioFileList
