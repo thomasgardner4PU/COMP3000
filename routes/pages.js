@@ -85,9 +85,9 @@ router.get('/guidedBreathing', authController.isLoggedIn, (req,res) => {
     res.render('guidedBreathing');
 })
 
-router.get('', authController.isLoggedIn, authController.getAudioFileList, (req , res) => {
-    res.render('')
-})
+// router.get('', authController.isLoggedIn, authController.getAudioFileList, (req , res) => {
+//     res.render('')
+// })
 
 
 module.exports = router;
