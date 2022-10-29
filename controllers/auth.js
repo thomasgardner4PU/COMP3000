@@ -9,6 +9,7 @@ const {token} = require("mysql");
 const {expires} = require("express-session/session/cookie");
 const fileUpload = require("express-fileupload");
 const util = require("util");
+const { Console } = require('console');
 
 
 // for user profile image
@@ -18,23 +19,27 @@ const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
     user: process.env["DATABASE_USER"],
     password: process.env["DATABASE_PASSWORD"],
-    database: process.env["DATABASE"],
-    filepath: process.env["DATABASE_IMAGES"]
+    filepath: process.env["DATABASE_IMAGES"],
+    database: process.env["DATABASE"]
 });
 
 // Connection Pool
 const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'comp3000'
+    user: 'tom',
+    password: 'yG*k8iE0LvEw5uVm',
+    database: 'comp3000',
+    port: "3306"
 });
 
 pool.getConnection((err, connection) => {
     if (err) throw err; // not connected
     console.log('Connected!');
 });
+
+
+
 
 
 /* ======================================================
@@ -106,7 +111,7 @@ exports.register = (req, res) => {
             console.log(error);
         }
 
-        if (results.length > 0) {
+        if (results > 0) {
             return res.render('register', {
                 message: 'That email is already in use'
             });
@@ -309,5 +314,3 @@ exports.complete_Todo = (req, res) => {
 //     }
 
 // }
-
-exports.getAudioFileList

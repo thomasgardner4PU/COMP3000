@@ -23,6 +23,7 @@ const db = mysql.createConnection({
     host: process.env["DATABASE_HOST"],
     user: process.env["DATABASE_USER"],
     password: process.env["DATABASE_PASSWORD"],
+    filepath: process.env["DATABASE_IMAGES"],
     database: process.env["DATABASE"]
 });
 
@@ -63,5 +64,3 @@ app.use('/auth', require('./routes/auth'));
 app.listen(5000, () => {
     console.log("Server started on Port 5000")
 });
-
-// getAudioFileList(1);
